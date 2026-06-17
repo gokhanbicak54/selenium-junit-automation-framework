@@ -21,7 +21,7 @@ public class C01_Actions_ContextClick extends TestBase_Each {
         WebElement dgiDronesElementi = driver.findElement(By.id("hot-spot"));
 
         Actions actions = new Actions(driver);
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
         actions.contextClick(dgiDronesElementi)
                 .perform();

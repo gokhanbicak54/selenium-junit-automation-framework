@@ -66,7 +66,7 @@ public class C04_BeforeAll_AfterAll {
             System.out.println("Url testi PASSED");
         } else System.out.println("Url testi FAILED");
 
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
     }
 
     @Test
@@ -86,7 +86,7 @@ public class C04_BeforeAll_AfterAll {
             System.out.println("phone arama testi PASSED");
         } else System.out.println("phone arama testi FAILED");
 
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
     }
 
     @Test

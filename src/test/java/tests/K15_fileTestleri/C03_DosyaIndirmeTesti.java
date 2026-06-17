@@ -22,7 +22,7 @@ public class C03_DosyaIndirmeTesti extends TestBase_Each {
 
 
         //3. Dosyanın başarıyla indirilip indirilmediğini test edelim
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
         // Dosya downloads'a inecektir
 

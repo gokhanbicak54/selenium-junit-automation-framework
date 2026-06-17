@@ -41,7 +41,7 @@ public class C03_WebElementScreenShot extends TestBase_Each {
         WebElement logoutButonu = driver.findElement(By.xpath("//span[.='Logout']"));
 
         Assertions.assertTrue(logoutButonu.isDisplayed());
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
         // Logout butonunun fotografini cekin
 
         // 1.adim screenshot alacagimiz webelementi locate edip kaydedelim

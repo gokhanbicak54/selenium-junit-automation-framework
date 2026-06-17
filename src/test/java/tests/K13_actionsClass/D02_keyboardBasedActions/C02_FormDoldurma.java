@@ -35,7 +35,7 @@ public class C02_FormDoldurma extends TestBase_Each {
          */
 
         Actions actions = new Actions(driver);
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
         WebElement firstnameKutusu = driver.findElement(By.id("firstName"));
 
         actions.click(firstnameKutusu)

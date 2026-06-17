@@ -25,7 +25,7 @@ public class C03_FakerVeActionsClassIleFormDoldurma extends TestBase_Each {
         driver.findElement(By.xpath("//*[@data-testid='open-registration-form-button']"))
                 .click();
 
-        ReusableMethods.bekle(5);
+        ReusableMethods.wait(5);
 
         // 2.cookie'i de kabul edelim
 
@@ -35,7 +35,7 @@ public class C03_FakerVeActionsClassIleFormDoldurma extends TestBase_Each {
 
         Actions actions = new Actions(driver);
         Faker faker = new Faker();
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
         WebElement isimKutusu = driver.findElement(By.xpath("//input[@name='firstname']"));
 
@@ -61,6 +61,6 @@ public class C03_FakerVeActionsClassIleFormDoldurma extends TestBase_Each {
         //5- Kaydol tusuna basalim
         driver.findElement(By.xpath("//*[@*='websubmit']")).click();
 
-        ReusableMethods.bekle(15);
+        ReusableMethods.wait(15);
     }
 }

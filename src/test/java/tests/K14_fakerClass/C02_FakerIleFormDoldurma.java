@@ -33,7 +33,7 @@ public class C02_FakerIleFormDoldurma  extends TestBase_Each {
         String fakeSifre = faker.internet().password();
         String fakeEmail = faker.internet().emailAddress();
 
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
         WebElement firstnameKutusu = driver.findElement(By.id("firstName"));
 
         actions.click(firstnameKutusu)
@@ -47,7 +47,7 @@ public class C02_FakerIleFormDoldurma  extends TestBase_Each {
                 .sendKeys(Keys.TAB)
                 .sendKeys(fakeSifre).perform();
 
-        ReusableMethods.bekle(5);
+        ReusableMethods.wait(5);
 
         //   ve Sign Up butonuna basalim
         driver.findElement(By.id("btn-submit-form")).click();

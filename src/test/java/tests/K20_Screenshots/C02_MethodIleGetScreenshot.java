@@ -50,7 +50,7 @@ public class C02_MethodIleGetScreenshot extends TestBase_Each {
 
         Assertions.assertTrue(actualIsim.contains(expectedIsimIcerik));
 
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
         // sayfanin fotografini cekin
 
         ReusableMethods.tumSayfaResimCek(driver);

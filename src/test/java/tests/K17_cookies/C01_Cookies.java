@@ -20,7 +20,7 @@ public class C01_Cookies  extends TestBase_Each {
         // cookies cikarsa kabul edin
         driver.findElement(By.xpath("//div[.='Accept all']"))
                 .click();
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
         // syfada kac adet cookies bulundugunu yazdirin
         Set<Cookie> sayfadakiCookieSeti = driver.manage().getCookies();
@@ -127,7 +127,7 @@ public class C01_Cookies  extends TestBase_Each {
         Assertions.assertEquals(0, sayfadakiCookieSeti.size());
 
 
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
     }
 }

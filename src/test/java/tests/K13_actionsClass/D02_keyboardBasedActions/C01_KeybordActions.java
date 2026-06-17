@@ -24,7 +24,7 @@ public class C01_KeybordActions  extends TestBase_Each {
         WebElement aramaKutusu = driver.findElement(By.id("global-search"));
 
         Actions actions = new Actions(driver);
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
         actions.click(aramaKutusu)
                 .keyDown(Keys.SHIFT)
@@ -46,7 +46,7 @@ public class C01_KeybordActions  extends TestBase_Each {
 
         Assertions.assertTrue(actualIsim.contains(expectedIsimIcerik));
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.wait(2);
 
     }
 }

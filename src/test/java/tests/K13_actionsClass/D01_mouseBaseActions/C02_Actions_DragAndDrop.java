@@ -25,7 +25,7 @@ public class C02_Actions_DragAndDrop extends TestBase_Each {
         //Tasimadan once yazi : Drop Here
 
         Actions actions = new Actions(driver);
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
         actions.dragAndDrop(draggableElementi,dropHereKutusuElementi)
                 .perform();

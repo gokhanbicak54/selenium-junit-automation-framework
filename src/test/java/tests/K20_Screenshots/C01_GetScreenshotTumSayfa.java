@@ -31,7 +31,7 @@ public class C01_GetScreenshotTumSayfa extends TestBase_Each {
         String actualSonucYazisi = aramaSonucElementi.getText();
 
         Assertions.assertNotEquals(unExpectedSonucYazisi,actualSonucYazisi);
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
         // tum sayfanin screenshot'ini alin
 
         // 1.adim tss objesi olusturalim

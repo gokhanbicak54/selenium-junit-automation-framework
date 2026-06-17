@@ -30,9 +30,9 @@ public class Q03 extends TestBase_Each {
         // 5. Sign in tusuna basin, back tusuna basarak sayfaya donun.
         driver.findElement(By.xpath("//input[@type='submit']"))
                 .click();
-        ReusableMethods.bekle(2);
+        ReusableMethods.wait(2);
         driver.navigate().back();
-        ReusableMethods.bekle(2);
+        ReusableMethods.wait(2);
 
         // 6. Online banking menusunden Pay Bills sayfasina gidin.
         driver.findElement(By.xpath("//strong[.='Online Banking']"))

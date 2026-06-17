@@ -17,7 +17,7 @@ public class C03_AsagiInme extends TestBase_Each {
 
         //2- video’yu gorecek kadar asagi inin
         Actions actions = new Actions(driver);
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
         actions.sendKeys(Keys.PAGE_DOWN)
                 .perform();
@@ -33,7 +33,7 @@ public class C03_AsagiInme extends TestBase_Each {
         driver.findElement(By.xpath("//button[@title='Play']"))
                 .click();
 
-        ReusableMethods.bekle(12);
+        ReusableMethods.wait(12);
 
 
 

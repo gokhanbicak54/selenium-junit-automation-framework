@@ -24,7 +24,7 @@ public class C02_IFrame extends TestBase_Each {
         String expectedUrunIsmi = "DELL Core I3 11th Gen";
         String actualUrunIsmi = driver.findElement(By.id("pictext1"))
                                         .getText();
-        Assertions.assertEquals(expectedUrunIsmi,actualUrunIsmi);
+        Assertions.assertEquals(expectedUrunIsmi, actualUrunIsmi);
 
         // 4- Sale Up To 50% yazisinin gorunur oldugunu test edin.
         //   bu yazi anasayfada oldugu icin
@@ -37,7 +37,7 @@ public class C02_IFrame extends TestBase_Each {
         Assertions.assertEquals(expectedBaslikYazisi,actualBaslikYazisi);
 
         // 5- Fashion bolumundeki ilk urun ismini locate edin.
-        //    fashion bolumu ayri bir IFrame icerisinde oldugundan , once o iFrame'e gecis yapmaliyiz
+        //    fashion bolumu ayri bir IFrame icerisinde oldugundan, once o iFrame'e gecis yapmaliyiz
         WebElement fashionIFrame = driver.findElement(By.xpath("(//iframe)[2]"));
         driver.switchTo().frame(fashionIFrame);
 

@@ -24,12 +24,12 @@ public class C03_TestBaseKullanimi extends TestBase_Each {
     @Test
     public void test01() {
         driver.get("https://www.testotomasyonu.com");
-        ReusableMethods.bekle(2);
+        ReusableMethods.wait(2);
     }
 
     @Test
     public void test02() {
         driver.get("https://www.wisequarter.com");
-        ReusableMethods.bekle(2);
+        ReusableMethods.wait(2);
     }
 }

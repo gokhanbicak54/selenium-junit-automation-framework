@@ -45,7 +45,7 @@ public class C01_ExplicitWait {
 
         // ve textbox etkin oluncaya kadar bekleyin
 
-        ReusableMethods.bekle(3);
+        ReusableMethods.wait(3);
 
         /*
          testimiz implicitlyWaitTest oldugu icin
@@ -88,7 +88,7 @@ public class C01_ExplicitWait {
             5.gorev icin yeterli olur
          */
 
-        ReusableMethods.bekle(2);
+        ReusableMethods.wait(2);
         driver.quit();
 
 

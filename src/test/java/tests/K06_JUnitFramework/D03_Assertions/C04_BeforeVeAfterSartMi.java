@@ -43,7 +43,7 @@ public class C04_BeforeVeAfterSartMi {
         String actualUrl = driver.getCurrentUrl();
 
         Assertions.assertTrue(actualUrl.contains(expectedurlIcerik),"url expected kelimeyi icermiyor");
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
         // 2- phone icin arama yapin
         WebElement aramaKutusu = driver.findElement(By.id("global-search"));
@@ -56,7 +56,7 @@ public class C04_BeforeVeAfterSartMi {
         int actualSonucSayisi = bulunanUrunElementleriList.size();
 
         Assertions.assertTrue(actualSonucSayisi > 0,"Istenen urun websayfasinda bulunamadi");
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
 
         // 3- ilk urunu tiklayin
         driver.findElement(By.xpath("(//*[@class='prod-img'])[1]"))
@@ -69,6 +69,6 @@ public class C04_BeforeVeAfterSartMi {
         String actualIsim = ilkUrunIsimElementi.getText().toLowerCase(); // case sensitive olmamasi icin
 
         Assertions.assertTrue(actualIsim.contains(expectedIsimIcerik));
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
     }
 }

@@ -77,7 +77,7 @@ public class C01_OtomatikSonucRaporlama {
             throw new AssertionFailedError();
         }
 
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
     }
 
     @Test
@@ -98,7 +98,7 @@ public class C01_OtomatikSonucRaporlama {
             throw new AssertionFailedError();
         }
 
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
     }
 
     @Test

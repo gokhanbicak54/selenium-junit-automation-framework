@@ -56,7 +56,7 @@ public class C03_JUnitAssertions {
 //            throw new AssertionFailedError();
 //        }
 
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class C03_JUnitAssertions {
 //            throw new AssertionFailedError();
 //        }
 
-        ReusableMethods.bekle(1);
+        ReusableMethods.wait(1);
     }
 
     @Test
