@@ -9,25 +9,23 @@ import org.openqa.selenium.interactions.Actions;
 import utilities.ReusableMethods;
 import utilities.TestBase_Each;
 
-
 public class C02_FormDoldurma extends TestBase_Each {
 
     @Test
-    public void test01(){
+    public void test01() {
 
-        //1- https://www.testotomasyonu.com adresine gidelim
+        // 1- https://www.testotomasyonu.com adresine gidelim.
         driver.get("https://www.testotomasyonu.com");
 
-        //2- Account linkine tiklayin
+        // 2- Account linkine tiklayin.
         driver.findElement(By.xpath("(//span[.='Account'])[1]"))
                 .click();
 
-        //3- Sign Up linkine basalim
+        // 3- Sign Up linkine basalim.
         driver.findElement(By.xpath("//*[.=' Sign Up']"))
                 .click();
 
-        //4- Ad, soyad, mail ve sifre kutularina deger yazalim
-
+        // 4- Ad, soyad, mail ve sifre kutularina deger yazalim.
         /*
             Formdaki tum kutulari tek tek locate etmek yerine
             firstName kutusuna click yapip, isim gonderelim
@@ -37,7 +35,6 @@ public class C02_FormDoldurma extends TestBase_Each {
         Actions actions = new Actions(driver);
         ReusableMethods.wait(1);
         WebElement firstnameKutusu = driver.findElement(By.id("firstName"));
-
         actions.click(firstnameKutusu)
                 .sendKeys("Ali")
                 .sendKeys(Keys.TAB)
@@ -52,8 +49,7 @@ public class C02_FormDoldurma extends TestBase_Each {
         //   ve Sign Up butonuna basalim
         driver.findElement(By.id("btn-submit-form")).click();
 
-        //5- Kaydin olusturuldugunu test edin
-
+        // 5- Kaydin olusturuldugunu test edin.
         /*
             Kayit yapinca bizi otomatik olarak giris sayfasina yonlendiriyor
             kaydin olustugunu test edebilmek icin
@@ -62,21 +58,11 @@ public class C02_FormDoldurma extends TestBase_Each {
 
         WebElement emailKutusu = driver.findElement(By.xpath("//input[@id='email']"));
         emailKutusu.sendKeys("alican@gmail.com");
-
         WebElement passwordKutusu = driver.findElement(By.xpath("//input[@id='password']"));
         passwordKutusu.sendKeys("12345");
-
         driver.findElement(By.id("submitlogin")).click();
-
-
-
         WebElement logoutButonu = driver.findElement(By.xpath("//span[.='Logout']"));
-
         Assertions.assertTrue(logoutButonu.isEnabled());
-
         logoutButonu.click();
-
-
-
     }
 }
