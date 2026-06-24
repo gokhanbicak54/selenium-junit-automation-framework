@@ -7,11 +7,10 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import utilities.TestBase_Each;
 
-
 public class C03_OlmayanElementiTestEtme extends TestBase_Each {
 
     @Test
-    public void test01(){
+    public void test01() {
 
         /*
             Olmayan veya gorunmeyen bir WebElementi test etmek icin
@@ -21,21 +20,19 @@ public class C03_OlmayanElementiTestEtme extends TestBase_Each {
             exception olusmamasi durumunda ise TEST FAILED olmalidir
          */
 
-        //1. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
+        // 1. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
 
-        //2. Remove butonuna basin.
+        // 2. Remove butonuna basin.
         driver.findElement(By.xpath("//*[.='Remove']"))
                 .click();
 
         // it's gone yazisi gorununceye kadar bekleyin
-        // it's gone yazi elementini daha once locate etmedigimiz icin
-        // implicitly wait locate edinceye kadar bekler
+        // it's gone yazi elementini daha once locate etmedigimiz icin implicitly wait locate edinceye kadar bekler
         WebElement itsGone = driver.findElement(By.xpath("//*[.=\"It's gone!\"]"));
+        Assertions.assertTrue(itsGone.isDisplayed());
 
-        //3. checkbox'in gorunur olmadigini test edin
-
-
+        // 3. checkbox'in gorunur olmadigini test edin.
         try {
             WebElement checkBox = driver.findElement(By.xpath("//*[@id='checkbox']"));
             // locate edebildiyse, checkbox gorunuyor demektir
@@ -46,21 +43,14 @@ public class C03_OlmayanElementiTestEtme extends TestBase_Each {
             // Checkbox'i locate edemedigi icin NoSuchElementException olusur
             // bu aslinda bizden istenen gorevin
             // yani checkBox'in gorunemediginin ispatidir
-
             Assertions.assertTrue(true);
         }
 
-
-        //4. Add buttonuna basin
+        // 4. Add buttonuna basin.
         driver.findElement(By.xpath("//*[.='Add']")).click();
 
-        //5. checkbox'in gorunur oldugunu test edin
+        // 5. checkbox'in gorunur oldugunu test edin.
         WebElement checkBox = driver.findElement(By.xpath("//*[@id='checkbox']"));
-
         Assertions.assertTrue(checkBox.isDisplayed());
-
-
-
     }
-
 }

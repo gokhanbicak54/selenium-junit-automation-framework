@@ -1,13 +1,12 @@
 package tests.K14_fakerClass;
 
-
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 
 public class C01_FakerClassKullanimi {
 
     @Test
-    public void test01(){
+    public void test01() {
 
         Faker faker = new Faker();
 
@@ -33,10 +32,5 @@ public class C01_FakerClassKullanimi {
         System.out.println(faker.internet().emailAddress()); // maris.osinski@hotmail.com
         System.out.println(faker.internet().safeEmailAddress()); // murray.padberg@example.com
         System.out.println(faker.internet().userAgentAny());
-
-
-
-
-
     }
 }

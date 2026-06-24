@@ -14,37 +14,30 @@ import java.time.Duration;
 
 public class C01_ExplicitWait {
 
-    //Iki tane metod olusturun : implicitWaitTest , explicitWaitTest
-    //Iki metod icin de asagidaki adimlari test edin.
-    //1. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
-    //2. Textbox’in etkin olmadigini(enabled) dogrulayın
-    //3. Enable butonuna tıklayın ve textbox etkin oluncaya kadar bekleyin
-    //4. Textbox’in etkin oldugunu(enabled) dogrulayın.
-    //5. “It’s enabled!” mesajinin goruntulendigini dogrulayın.
+    // Iki tane metod olusturun : implicitWaitTest, explicitWaitTest
+    // Iki metod icin de asagidaki adimlari test edin.
 
     WebDriver driver;
 
     @Test
-    public void implicitlyWaitTesti(){
+    public void implicitWaitTesti() {
 
         driver = new ChromeDriver();
-        driver. manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
-        //1. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
+        // 1. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
 
-        //2. Textbox’in etkin olmadigini(enabled) dogrulayın
+        // 2. Textbox’in etkin olmadigini(enabled) dogrulayın.
         WebElement textBox = driver.findElement(By.xpath("//input[@type='text']"));
+        Assertions.assertFalse(textBox.isEnabled());
 
-        Assertions.assertFalse( textBox.isEnabled() );
-
-        //3. Enable butonuna tıklayın
+        // 3. Enable butonuna tıklayın.
         driver.findElement(By.xpath("//button[.='Enable']"))
                 .click();
 
-        // ve textbox etkin oluncaya kadar bekleyin
-
+        // ve textbox etkin oluncaya kadar bekleyin.
         ReusableMethods.wait(3);
 
         /*
@@ -53,9 +46,8 @@ public class C01_ExplicitWait {
          yeterli olmazsa ekstra bekleme koymak gerekir
          */
 
-
-        //4. Textbox’in etkin oldugunu(enabled) dogrulayın.
-        Assertions.assertTrue(  textBox.isEnabled() );
+        // 4. Textbox’in etkin oldugunu(enabled) dogrulayın.
+        Assertions.assertTrue(textBox.isEnabled());
         /*
             implicitlyWait() iki durumda bekleme yapar
             1- sayfanin yuklenmesi
@@ -70,11 +62,10 @@ public class C01_ExplicitWait {
             4.gorevin gerceklesmesi icin Thread.sleep() kullandik
          */
 
-
-        //5. “It’s enabled!” mesajinin goruntulendigini dogrulayın.
+        // 5. “It’s enabled!” mesajinin goruntulendigini dogrulayın.
         WebElement itsEnabledYaziElementi = driver.findElement(By.id("message"));
-
         Assertions.assertTrue(itsEnabledYaziElementi.isDisplayed());
+
         /*
             4.gorevde implicitly wait bekleme yapmadi
             ANCAAAKKK
@@ -90,26 +81,23 @@ public class C01_ExplicitWait {
 
         ReusableMethods.wait(2);
         driver.quit();
-
-
     }
 
     @Test
-    public void explicitWaitTesti(){
+    public void explicitWaitTesti() {
 
         driver = new ChromeDriver();
-        driver. manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         driver.manage().window().maximize();
 
-        //1. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
+        // 1. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
 
-        //2. Textbox’in etkin olmadigini(enabled) dogrulayın
+        // 2. Textbox’in etkin olmadigini(enabled) dogrulayın
         WebElement textBox = driver.findElement(By.xpath("//input[@type='text']"));
+        Assertions.assertFalse(textBox.isEnabled());
 
-        Assertions.assertFalse( textBox.isEnabled() );
-
-        //3. Enable butonuna tıklayın
+        // 3. Enable butonuna tıklayın
         driver.findElement(By.xpath("//button[.='Enable']"))
                 .click();
 
@@ -117,7 +105,7 @@ public class C01_ExplicitWait {
         // explicitlyWait ile bekleyelim
 
             // 1.adim bir wait objesi olustur
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // 2.adim MUMKUNSE beklenecek objeyi locate edip bir webelement olarak kaydedin
             //        textbox'i locate edebiliyoruz ve yukarda locate edip kaydettik
@@ -125,19 +113,12 @@ public class C01_ExplicitWait {
             // 3.adim wait objesine neyi bekleyecegini soyleyin
         wait.until(ExpectedConditions.elementToBeClickable(textBox));
 
-        //4. Textbox’in etkin oldugunu(enabled) dogrulayın.
-        Assertions.assertTrue(  textBox.isEnabled() );
+        // 4. Textbox’in etkin oldugunu(enabled) dogrulayın.
+        Assertions.assertTrue(textBox.isEnabled());
 
-        //5. “It’s enabled!” mesajinin goruntulendigini dogrulayın.
-
+        // 5. “It’s enabled!” mesajinin goruntulendigini dogrulayın.
         WebElement itsEnabledYaziElementi = driver.findElement(By.id("message"));
-
         Assertions.assertTrue(itsEnabledYaziElementi.isDisplayed());
-
         driver.quit();
-
     }
-
-
-
 }
