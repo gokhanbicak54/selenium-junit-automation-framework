@@ -7,18 +7,15 @@ import org.openqa.selenium.WebElement;
 import utilities.ReusableMethods;
 import utilities.TestBase_Each;
 
-
 public class C01_JavaScriptExecutor extends TestBase_Each {
 
     @Test
-    public void test01(){
+    public void test01() {
 
         // https://testotomasyonu.com/form sayfasina gidin
         driver.get("https://testotomasyonu.com/form");
 
-
         // isitme kaybi checkbox gorunecek kadar asagi inin
-
             // 1.adim jse objesi olustur
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
@@ -27,20 +24,15 @@ public class C01_JavaScriptExecutor extends TestBase_Each {
         ReusableMethods.wait(1);
             //3.adim jse.executeScript() ile istenen islemi yapin
             // isitme kaybi checkbox gorunecek kadar asagi inin
-        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});",isitmeKaybiCheckbox);
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", isitmeKaybiCheckbox);
         ReusableMethods.wait(3);
 
         // jse kullanarak isitme kaybi checkbox'i isaretleyin
-        jse.executeScript("arguments[0].click();",isitmeKaybiCheckbox);
+        jse.executeScript("arguments[0].click();", isitmeKaybiCheckbox);
         ReusableMethods.wait(3);
 
         // javascript Alert kullanarak "JUnit BITTTIIIII" yazdirin
         jse.executeScript("alert('JUnit BITTTIIIII!');");
-
         ReusableMethods.wait(3);
-
-
-
-
     }
 }

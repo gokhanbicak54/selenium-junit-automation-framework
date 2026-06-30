@@ -10,7 +10,7 @@ import utilities.TestBase_Each;
 public class C04_MethodIleScreenshot extends TestBase_Each {
 
     @Test
-    public void test01(){
+    public void test01() {
 
         // Testotomasyonu anasayfaya gidelim
         driver.get("https://www.testotomasyonu.com");
@@ -34,7 +34,6 @@ public class C04_MethodIleScreenshot extends TestBase_Each {
         // giris yapilabildigini test etmek icin
         // Logout butonunun gorunur oldugunu test edin
         WebElement logoutButonu = driver.findElement(By.xpath("//span[.='Logout']"));
-
         Assertions.assertTrue(logoutButonu.isDisplayed());
         ReusableMethods.wait(1);
 
@@ -45,8 +44,6 @@ public class C04_MethodIleScreenshot extends TestBase_Each {
         ReusableMethods.tarihliWebElementResimCek(logoutButonu,"positiveLoginTesti");
 
         // logout butonuna basarak sistemden cikis yapin
-
         logoutButonu.click();
-
     }
 }

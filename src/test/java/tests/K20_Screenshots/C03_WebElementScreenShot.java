@@ -36,13 +36,12 @@ public class C03_WebElementScreenShot extends TestBase_Each {
         driver.findElement(By.id("submitlogin"))
                 .click();
 
-        // giris yapilabildigini test etmek icin
-        // Logout butonunun gorunur oldugunu test edin
+        // giris yapilabildigini test etmek icin Logout butonunun gorunur oldugunu test edin
         WebElement logoutButonu = driver.findElement(By.xpath("//span[.='Logout']"));
-
         Assertions.assertTrue(logoutButonu.isDisplayed());
-        ReusableMethods.wait(1);
+
         // Logout butonunun fotografini cekin
+        ReusableMethods.wait(1);
 
         // 1.adim screenshot alacagimiz webelementi locate edip kaydedelim
         //        biz yukarda Logout butonunu locate ettik
@@ -55,12 +54,9 @@ public class C03_WebElementScreenShot extends TestBase_Each {
         File geciciDosya = logoutButonu.getScreenshotAs(OutputType.FILE);
 
         // 4.adim gecici dosyayi asil dosyaya kopyalayalim
-
-        FileUtils.copyFile(geciciDosya,webElementResim);
+        FileUtils.copyFile(geciciDosya, webElementResim);
 
         // logout butonuna basarak sistemden cikis yapin
-
         logoutButonu.click();
-
     }
 }

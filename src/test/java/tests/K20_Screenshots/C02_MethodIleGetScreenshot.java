@@ -8,11 +8,10 @@ import org.openqa.selenium.WebElement;
 import utilities.ReusableMethods;
 import utilities.TestBase_Each;
 
-
 public class C02_MethodIleGetScreenshot extends TestBase_Each {
 
     @Test
-    public void test01(){
+    public void test01() {
 
         // testotomasyonu anasayfaya gidin
         driver.get("https://www.testotomasyonu.com");
@@ -22,19 +21,15 @@ public class C02_MethodIleGetScreenshot extends TestBase_Each {
         aramaKutusu.sendKeys("phone" + Keys.ENTER);
 
         // arama sonucunda urun bulunabildigini test edin
-
         WebElement aramaSonucElementi = driver.findElement(By.className("product-count-text"));
-
         String unExpectedSonucYazisi = "0 Products Found";
         String actualSonucYazisi = aramaSonucElementi.getText();
-
-        Assertions.assertNotEquals(unExpectedSonucYazisi,actualSonucYazisi);
+        Assertions.assertNotEquals(unExpectedSonucYazisi, actualSonucYazisi);
 
         // tum sayfa screenshot alin
         ReusableMethods.tumSayfaResimCek(driver);
         // her seferinde verdigimiz isim olan tumSayfaResmi.jpeg  olarak resmi kaydeder
         // onceki cekilenler silinmis olur
-
         ReusableMethods.tumSayfaResimCek(driver,"aramaTesti19Aralik");
 
         // ilk urunu tiklayin
@@ -42,25 +37,16 @@ public class C02_MethodIleGetScreenshot extends TestBase_Each {
                 .click();
 
         // acilan sayfadaki urun isminde case sensitive olmadan "phone" bulundugunu test edin
-
         WebElement ilkUrunIsimElementi = driver.findElement(By.xpath("//div[@class=' heading-sm mb-4']"));
-
         String expectedIsimIcerik = "phone";
         String actualIsim = ilkUrunIsimElementi.getText().toLowerCase();
-
         Assertions.assertTrue(actualIsim.contains(expectedIsimIcerik));
 
-        ReusableMethods.wait(1);
         // sayfanin fotografini cekin
-
+        ReusableMethods.wait(1);
         ReusableMethods.tumSayfaResimCek(driver);
-
         ReusableMethods.tumSayfaResimCek(driver,"IlkUruntesti19Aralik");
-
         ReusableMethods.tarihliTumSayfaResimCek(driver);
-
         ReusableMethods.tarihliTumSayfaResimCek(driver,"IlkUrunTesti");
-
-
     }
 }

@@ -7,7 +7,6 @@ import org.openqa.selenium.*;
 import utilities.ReusableMethods;
 import utilities.TestBase_Each;
 
-
 import java.io.File;
 import java.io.IOException;
 
@@ -24,16 +23,13 @@ public class C01_GetScreenshotTumSayfa extends TestBase_Each {
         aramaKutusu.sendKeys("phone" + Keys.ENTER);
 
         // arama sonucunda urun bulunabildigini test edin
-
         WebElement aramaSonucElementi = driver.findElement(By.className("product-count-text"));
-
         String unExpectedSonucYazisi = "0 Products Found";
         String actualSonucYazisi = aramaSonucElementi.getText();
+        Assertions.assertNotEquals(unExpectedSonucYazisi, actualSonucYazisi);
 
-        Assertions.assertNotEquals(unExpectedSonucYazisi,actualSonucYazisi);
-        ReusableMethods.wait(1);
         // tum sayfanin screenshot'ini alin
-
+        ReusableMethods.wait(1);
         // 1.adim tss objesi olusturalim
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 
@@ -45,8 +41,6 @@ public class C01_GetScreenshotTumSayfa extends TestBase_Each {
         File geciciDosya = takesScreenshot.getScreenshotAs(OutputType.FILE);
 
         // 4.adim gecici dosyayi asil dosyaya kopyalayalim
-        FileUtils.copyFile(geciciDosya,tumSayfaResmi);
-
-
+        FileUtils.copyFile(geciciDosya, tumSayfaResmi);
     }
 }
