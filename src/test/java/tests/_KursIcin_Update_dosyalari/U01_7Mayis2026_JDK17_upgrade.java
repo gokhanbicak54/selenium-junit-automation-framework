@@ -1,12 +1,11 @@
 package tests._KursIcin_Update_dosyalari;
 
 public class U01_7Mayis2026_JDK17_upgrade {
+
     /*
     Yeni JUnit versiyonlari minimum JDK 17 istiyor,
     bu amacla bilgisayarinizdaki JDK surumunu JDK17'ye upgrade etmelisiniz
     asagidaki pom.xml benim bilgisayarimda calisan pom.xml dosyasinin icerigidir.
-
-
 
    <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -77,7 +76,5 @@ public class U01_7Mayis2026_JDK17_upgrade {
     </dependencies>
 
 </project>
-
-
      */
 }

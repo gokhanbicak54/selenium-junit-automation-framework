@@ -7,17 +7,14 @@ public class C01_IlkOtomasyon {
 
     public static void main(String[] args) throws InterruptedException {
 
-        // Bir test class'i olusturuldugunda ilk yapilmasi gereken sey
-        // WebDriver edinmektir
-
+        // Bir test class'i olusturuldugunda ilk yapilmasi gereken sey WebDriver edinmektir.
         WebDriver driver = new ChromeDriver();
-
         driver.get("https://www.testotomasyonu.com");
 
          /*
-         istenen Url'e gider
-         url yazarken www yazmasak da WebDriver objesi url'e gider
-         ANCCAAAK https: yazmazsak kod calismaz
+         istenen Url'e gider.
+         url yazarken www yazmasak da WebDriver objesi url'e gider.
+         ANCCAAAK https: yazmazsak kod calismaz.
          */
 
         Thread.sleep(3000);

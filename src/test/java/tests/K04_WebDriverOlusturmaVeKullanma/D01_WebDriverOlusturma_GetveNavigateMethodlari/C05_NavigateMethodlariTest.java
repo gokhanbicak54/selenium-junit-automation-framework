@@ -34,7 +34,7 @@ public class C05_NavigateMethodlariTest {
         // 5. Tekrar YouTube’sayfasina donun.
         driver.navigate().back();
 
-        // 6. Title’in “YouTube” oldugunu test edin
+        // 6. Title’in “YouTube” oldugunu test edin.
         String expectedTitle = "YouTube";
         actualTitle = driver.getTitle();
 

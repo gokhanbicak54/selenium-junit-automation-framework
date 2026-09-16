@@ -11,10 +11,10 @@ public class C02_DriverGetMethodlari {
         driver.get("https://www.testotomasyonu.com");
 
         System.out.println(driver.getTitle()); // Test Otomasyonu - Test Otomasyonu
-        // sayfanin basligini (Title) getirir
+        // Sayfanin basligini (Title) getirir.
 
         System.out.println(driver.getCurrentUrl()); // https://www.testotomasyonu.com/
-        // gidilen sayfadaki actual url'i getirir
+        // Gidilen sayfadaki actual url'i getirir.
 
         System.out.println(driver.getPageSource()); // gidilen sayfanin kaynak kodunu getirir
 
@@ -22,17 +22,13 @@ public class C02_DriverGetMethodlari {
         System.out.println(driver.getWindowHandles()); // [ACD4E31E98AF4C1C0C3ACD5A3BF368AD]
 
         /*
-         WebDriver olusturulan her bir objeye
-         benzersiz (unique) bir Window Handle Degeri atar.
+         WebDriver olusturulan her bir objeye benzersiz (unique) bir Window Handle Degeri atar.
+         Bu konu ilerde ayrica anlatilacak.
 
-         Bu konu ilerde ayrica anlatilacak
+         Eger bir class calistiginda birden fazla windows acilirsa herbirinin ayri bir Window Handle Degeri olur.
 
-         Eger bir class calistiginda birden fazla windows acilirsa
-         herbirinin ayri bir Window Handle Degeri olur
-
-         getWindowHandle() driver'in actigi son window'un window handle degerini verir
-         getWindowHandles() ise acilan tum window'larin window handle degerlerini
-         bir Set olarak verir
+         getWindowHandle() driver'in actigi son window'un window handle degerini verir.
+         getWindowHandles() ise acilan tum window'larin window handle degerlerini bir Set olarak verir.
 
          driver'in acilan Window'lar arasinda gecis yapabilmesi icin
          gecegi window'un window handle degerini bilmesi gerekir
@@ -43,10 +39,10 @@ public class C02_DriverGetMethodlari {
         driver.quit();
 
          /*
-         actigimiz driver'i kapatir
-         driver.close(); // actigimiz driver'i kapatir
-         aralarindaki fark; close() sadece 1 window kapatir
-                            quit() ise test sirasinda birden fazla window acilsa da hepsini kapatir
+         Actigimiz driver'i kapatir
+         driver.close(); // actigimiz driver'i kapatir.
+         Aralarindaki fark; close() sadece 1 window kapatir
+                            quit() ise test sirasinda birden fazla window acilsa da hepsini kapatir.
          */
     }
 }
