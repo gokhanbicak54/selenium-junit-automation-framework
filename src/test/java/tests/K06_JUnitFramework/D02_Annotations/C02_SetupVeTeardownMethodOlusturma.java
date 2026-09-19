@@ -8,26 +8,24 @@ import java.time.Duration;
 
 public class C02_SetupVeTeardownMethodOlusturma {
     /*
-        Java'da tekrar eden kodlari sevmeyiz
-
-        Bir test method'u olusturuldugunda
-        basta olusturmamiz gereken driver objesi
-        ve sondaki kapatma islemi
-        tum method'lar icin lazim
-
-        her test method'unda bunlari tekrar tekrar olusturmak yerine
-        method yapip methodCall ile kullanmayi tercih edebiliriz
+        Java'da tekrar eden kodlari sevmeyiz.
+        Bir test method'u olusturuldugunda basta olusturmamiz gereken driver objesi
+        ve sondaki kapatma islemi tum method'lar icin lazim.
+        Her test method'unda bunlari tekrar tekrar olusturmak yerine
+        method yapip methodCall ile kullanmayi tercih edebiliriz.
      */
 
     WebDriver driver;
 
     public void setup() {
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     public void teardown() {
+
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -39,9 +37,10 @@ public class C02_SetupVeTeardownMethodOlusturma {
 
     @Test
     public void testotomasyonuTesti() {
-        setup();
-        driver.get("https://www.testotomasyonu.com");
 
+        setup();
+
+        driver.get("https://www.testotomasyonu.com");
         String expectedTitleIcerik = "Test Otomasyonu";
         String actualTitle = driver.getTitle();
 
@@ -54,9 +53,10 @@ public class C02_SetupVeTeardownMethodOlusturma {
 
     @Test
     void junitTesti() {
-        setup();
-        driver.get("https://junit.org/junit5/");
 
+        setup();
+
+        driver.get("https://junit.org/junit5/");
         String expectedUrl = "https://junit.org/junit5/";
         String actualUrl = driver.getCurrentUrl();
 
@@ -69,9 +69,10 @@ public class C02_SetupVeTeardownMethodOlusturma {
 
     @Test
     public void wisequarterTesti() {
-        setup();
-        driver.get("https://www.wisequarter.com");
 
+        setup();
+
+        driver.get("https://www.wisequarter.com");
         String expectedUrlIcerik = "wisequarter";
         String actualUrl = driver.getCurrentUrl();
 

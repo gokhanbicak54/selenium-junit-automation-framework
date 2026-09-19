@@ -6,9 +6,8 @@ public class C01_UnitTest {
 
     public static void main(String[] args) {
 
-        // verilen bir sayi 3 basamakli pozitif bir sayi ise true
-        //                  3 basamakli pozitif bir sayi degilse false
-        // donduren bir method olusturun
+        // Verilen bir sayi 3 basamakli pozitif bir sayi ise true,
+        // 3 basamakli pozitif bir sayi degilse false donduren bir method olusturun.
 
             ucBasamakliPozitifSayiTrueDonmeli();
             ikiBasamakliPozitifSayiFalseDonmeli();
@@ -22,10 +21,8 @@ public class C01_UnitTest {
     }
 
     /*
-        Bu method'u test etmek icin true veya false dondurmesi gereken
-        sayi araliklarindan farkli testler yapmaliyiz
-
-        ornegin
+        Bu method'u test etmek icin true veya false dondurmesi gereken sayi araliklarindan farkli testler yapmaliyiz.
+        Ornegin;
         - verilen sayi pozitif 3 basamakli sayi ise expectedSonuc = true
         - verilen sayi pozitif 100'den kucuk bir sayi ise expectedSonuc = false
         - verilen sayi pozitif 999'dan buyuk bir sayi ise expectedSonuc = false
@@ -33,12 +30,11 @@ public class C01_UnitTest {
      */
 
     public static void ucBasamakliPozitifSayiTrueDonmeli() {
+
         // - verilen sayi pozitif 3 basamakli sayi ise expectedSonuc = true
         //   100 - 999
-
         Random random = new Random();
         int denenecekSayi = random.nextInt(899) + 100;
-
         boolean methodSonucu = sayiyiKontrolEt(denenecekSayi);
 
         if (methodSonucu) {

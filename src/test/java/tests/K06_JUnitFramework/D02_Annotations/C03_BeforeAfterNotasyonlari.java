@@ -13,7 +13,8 @@ public class C03_BeforeAfterNotasyonlari {
     WebDriver driver;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -21,6 +22,7 @@ public class C03_BeforeAfterNotasyonlari {
 
     @AfterEach
     public void teardown() {
+
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -32,8 +34,8 @@ public class C03_BeforeAfterNotasyonlari {
 
     @Test
     public void testotomasyonuTesti() {
-        driver.get("https://www.testotomasyonu.com");
 
+        driver.get("https://www.testotomasyonu.com");
         String expectedTitleIcerik = "Test Otomasyonu";
         String actualTitle = driver.getTitle();
 
@@ -44,8 +46,8 @@ public class C03_BeforeAfterNotasyonlari {
 
     @Test
     void junitTesti() {
-        driver.get("https://junit.org/junit5/");
 
+        driver.get("https://junit.org/junit5/");
         String expectedUrl = "https://junit.org/junit5/";
         String actualUrl = driver.getCurrentUrl();
 
@@ -56,8 +58,8 @@ public class C03_BeforeAfterNotasyonlari {
 
     @Test
     public void wisequarterTesti() {
-        driver.get("https://www.wisequarter.com");
 
+        driver.get("https://www.wisequarter.com");
         String expectedUrlIcerik = "wisequarter";
         String actualUrl = driver.getCurrentUrl();
 

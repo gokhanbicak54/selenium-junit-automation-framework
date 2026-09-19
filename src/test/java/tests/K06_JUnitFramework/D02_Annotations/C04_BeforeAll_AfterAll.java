@@ -13,36 +13,28 @@ import java.util.List;
 
 public class C04_BeforeAll_AfterAll {
 
-    // 3 farkli test method'u olusturarak asagidaki testleri gerceklestirin
-    // 1- Test otomasyonu anasayfaya gidin
-    //    Url'in testotomasyonu icerdigini test edin
-    // 2- phone icin arama yapin
-    //    ve arama sonucunda urun bulunabildigini test edin
-    // 3- ilk urunu tiklayin
-    //    ve acilan sayfadaki urun isminde case sensitive olmadan "phone" bulundugunu test edin
+    // 3 farkli test method'u olusturarak asagidaki testleri gerceklestirin.
+    // 1- Test otomasyonu anasayfaya gidin. Url'in testotomasyonu icerdigini test edin.
+    // 2- phone icin arama yapin ve arama sonucunda urun bulunabildigini test edin.
+    // 3- Ilk urunu tiklayin ve acilan sayfadaki urun isminde case sensitive olmadan "phone" bulundugunu test edin.
 
     /*
-        Bu gorev icin
-        her test method'undan sonra driver'i kapatmak (@AfterEach) mantikli olmaz
+        Bu gorev icin her test method'undan sonra driver'i kapatmak (@AfterEach) mantikli olmaz.
+        Bunun yerine class calismaya basladiginda hic bir method calismadan once driver'i olusturmak
+        ve tum @Test method'lari calisip bittikten sonra calisacak @Test method'u kalmadiginda
+        driver'i kapatmak daha mantikli olur.
 
-        bunun yerine
-        class calismaya basladiginda hic bir method calismadan once driver'i olusturmak
-        ve tum @Test method'lari calisip bittikten sonra
-        calisacak @Test method'u kalmadiginda
-        driver'i kapatmak daha mantikli olur
+        Bu tur birbirinin sonucuna bagli test method'lari oldugunda JUnit ile method'lari tek tek run edebiliriz
+        ancak method'un yapmasi gereken islevi yapmasi mumkun olmayabilir.
 
-        Bu tur birbirinin sonucuna bagli test method'lari oldugunda
-        JUnit ile method'lari tek tek run edebiliriz
-        ancak method'un yapmasi gereken islevi yapmasi mumkun olmayabilir
-
-        @BeforeAll ve @AfterAll notasyonu kullanan method'larin
-        mutlaka static olmasi gerekir
+        @BeforeAll ve @AfterAll notasyonu kullanan method'larin mutlaka static olmasi gerekir.
      */
 
     static WebDriver driver;
 
     @BeforeAll // class'in basinda 1 kere calisir
     public static void setup() {
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -50,11 +42,13 @@ public class C04_BeforeAll_AfterAll {
 
     @AfterAll // class'in en sonunda 1 kere calisir
     static void teardown() {
+
         driver.quit();
     }
 
     @Test
     public void test01() {
+
         // 1- Test otomasyonu anasayfaya gidin
         driver.get("https://www.testotomasyonu.com");
 
@@ -71,18 +65,16 @@ public class C04_BeforeAll_AfterAll {
 
     @Test
     public void test02() {
+
         // 2- phone icin arama yapin
         WebElement aramaKutusu = driver.findElement(By.id("global-search"));
         aramaKutusu.sendKeys("phone" + Keys.ENTER);
 
         //    ve arama sonucunda urun bulunabildigini test edin
-
-        List<WebElement> bulunanUrunElementleriList =
-                driver.findElements(By.xpath("//*[@class='prod-img']"));
-
+        List<WebElement> bulunanUrunElementleriList = driver.findElements(By.xpath("//*[@class='prod-img']"));
         int actualSonucSayisi = bulunanUrunElementleriList.size();
 
-        if (actualSonucSayisi>0){
+        if (actualSonucSayisi > 0) {
             System.out.println("phone arama testi PASSED");
         } else System.out.println("phone arama testi FAILED");
 
@@ -91,13 +83,13 @@ public class C04_BeforeAll_AfterAll {
 
     @Test
     public void test03() {
+
         // 3- ilk urunu tiklayin
         driver.findElement(By.xpath("(//*[@class='prod-img'])[1]"))
                 .click();
 
         //    ve acilan sayfadaki urun isminde case sensitive olmadan "phone" bulundugunu test edin
         WebElement ilkUrunIsimElementi = driver.findElement(By.xpath("//*[@class=' heading-sm mb-4']"));
-
         String expectedIsimIcerik = "phone";
         String actualIsim = ilkUrunIsimElementi.getText().toLowerCase(); // case sensitive olmamasi icin
 

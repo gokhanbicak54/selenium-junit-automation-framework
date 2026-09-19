@@ -9,23 +9,14 @@ import java.time.Duration;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class C01_TestNotasyonu {
     /*
-        @Test notasyonu siradan bir method'u
-        tek basina Run edilebilir hale getirir
-
-        @Test notasyonu sayesinde
-        her bir testi bagimsiz olarak calistirabilecegimiz gibi
-        class isminin yanindaki run tusu ile
-        class'daki TUM test method'larini toplu olarak da calistirabiliriz
+        @Test notasyonu siradan bir method'u tek basina Run edilebilir hale getirir,
+        @Test notasyonu sayesinde her bir testi bagimsiz olarak calistirabilecegimiz gibi
+        class isminin yanindaki run tusu ile class'daki TUM test method'larini toplu olarak da calistirabiliriz.
     */
     /*
-        JUnit @Test method'larin calisma sirasini
-        kendine gore duzenler
-        belirlenmis bir siralama duzeni yoktur
-        siralamayi ongoremeyiz ve kontrol edemeyiz
-
-        eger sirali calismasini istediginiz
-        test method'lari olursa
-        @TestMethodOrder kullanmamiz gerekir
+        JUnit @Test method'larin calisma sirasini kendine gore duzenler.
+        Belirlenmis bir siralama duzeni yoktur. Siralamayi ongoremeyiz ve kontrol edemeyiz.
+        Eger sirali calismasini istediginiz test method'lari olursa @TestMethodOrder kullanmamiz gerekir.
      */
 
     @Test @Order(10)
@@ -36,7 +27,6 @@ public class C01_TestNotasyonu {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://www.testotomasyonu.com");
-
         String expectedTitleIcerik = "Test Otomasyonu";
         String actualTitle = driver.getTitle();
 
@@ -56,7 +46,6 @@ public class C01_TestNotasyonu {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://junit.org/junit5/");
-
         String expectedUrl = "https://junit.org/junit5/";
         String actualUrl = driver.getCurrentUrl();
 
@@ -76,7 +65,6 @@ public class C01_TestNotasyonu {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://www.wisequarter.com");
-
         String expectedUrlIcerik = "wisequarter";
         String actualUrl = driver.getCurrentUrl();
 

@@ -7,13 +7,10 @@ import java.time.Duration;
 
 public class C02_CokluTest {
 
-    // 3 farkli method olusturun
-    // 1.method testotomasyonu anasayfaya gidin
-    //          title'in Test Otomasyonu icerdigini test edin
-    // 2.method wisequarter anasayfaya gidin
-    //          url'in wisequarter icerdigini test edin
-    // 3.method junit.org adresine gidin
-    //          url'in "https://junit.org/" oldugunu test edin
+    // 3 farkli method olusturun.
+    // 1.method testotomasyonu anasayfaya gidin, title'in Test Otomasyonu icerdigini test edin.
+    // 2.method wisequarter anasayfaya gidin, url'in wisequarter icerdigini test edin.
+    // 3.method junit.org adresine gidin, url'in "https://junit.org/" oldugunu test edin.
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -23,12 +20,12 @@ public class C02_CokluTest {
     }
 
     public static void testotomasyonuTesti() throws InterruptedException {
+
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://www.testotomasyonu.com");
-
         String expectedTitleIcerik = "Test Otomasyonu";
         String actualTitle = driver.getTitle();
 
@@ -41,12 +38,12 @@ public class C02_CokluTest {
     }
 
     public static void wisequarterTesti() throws InterruptedException {
+
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://www.wisequarter.com");
-
         String expectedUrlIcerik = "wisequarter";
         String actualUrl = driver.getCurrentUrl();
 
@@ -59,12 +56,12 @@ public class C02_CokluTest {
     }
 
     public static void junitTesti() throws InterruptedException {
+
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://junit.org/");
-
         String expectedUrl = "https://junit.org/";
         String actualUrl = driver.getCurrentUrl();
 

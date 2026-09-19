@@ -20,6 +20,7 @@ public class Q02 {
 
     @BeforeAll
     public static void setUp() {
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -28,11 +29,13 @@ public class Q02 {
 
     @AfterAll
     public static void tearDown() {
+
         driver.quit();
     }
 
     @Test
     public void titleTest() {
+
         // ○ titleTest => Sayfa başlığının “YouTube” oldugunu test edin.
         String expectedTitle = "YouTube";
         String actualTitle = driver.getTitle();
@@ -41,6 +44,7 @@ public class Q02 {
 
     @Test
     public void imageTest() {
+
         // ○ imageTest => YouTube resminin görüntülendiğini (isDisplayed()) test edin.
         WebElement imageElementi = driver.findElement(By.xpath("(//span[@class='yt-icon-shape style-scope yt-icon ytSpecIconShapeHost'])[2]"));
         Assertions.assertTrue(imageElementi.isDisplayed());
@@ -48,6 +52,7 @@ public class Q02 {
 
     @Test
     public void searhBoxTest() {
+
         // ○ Search Box 'in erisilebilir oldugunu test edin (isEnabled()).
         WebElement searchBoxElementi = driver.findElement(By.xpath("//input[@class='ytSearchboxComponentInput yt-searchbox-input title']"));
         Assertions.assertTrue(searchBoxElementi.isEnabled());
@@ -55,6 +60,7 @@ public class Q02 {
 
     @Test
     public void wrongTitleTest() {
+
         // ○ wrongTitleTest => Sayfa basliginin “youtube” olmadigini dogrulayin.
         String expectedTitle = "youtube";
         String actualTitle = driver.getTitle();
