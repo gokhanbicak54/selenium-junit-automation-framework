@@ -11,21 +11,19 @@ public class C05_HedefUrlIleWindowDegistirme extends TestBase_Each {
 
     @Test
     public void test01() {
+
         // https://the-internet.herokuapp.com/windows adresine gidin.
         driver.get("https://the-internet.herokuapp.com/windows");
 
-        // sayfadaki elemental selenium linkini tiklayin
+        // Sayfadaki elemental selenium linkini tiklayin.
         driver.findElement(By.xpath("//*[.='Elemental Selenium']"))
                 .click();
 
-        // acilan yeni window'a gecin
-        // url ile gecis yapalim
+        // Acilan yeni window'a gecin. // Url ile gecis yapalim.
         /*
-            acik olan tum window'larin whd'lerini kaydedelim
-            bir for-each loop ile tum whd'lerini gozden gecirip
-            her windowhandle degerinin sayfasina gecelim
-            eger gectigimiz sayfada url hedefUrl'e esit ise
-            loop'u bitirelim
+            Acik olan tum window'larin whd'lerini kaydedelim.
+            Bir for-each loop ile tum whd'lerini gozden gecirip her windowhandle degerinin sayfasina gecelim.
+            Eger gectigimiz sayfada url hedefUrl'e esit ise loop'u bitirelim.
          */
 
         String hedefUrl = "https://elementalselenium.com/";
@@ -36,12 +34,12 @@ public class C05_HedefUrlIleWindowDegistirme extends TestBase_Each {
         for (String eachWhd : acikTumWindowsWhdSeti) {
             driver.switchTo().window(eachWhd);
             if (driver.getCurrentUrl().equals(hedefUrl)) {
-                // actual url, hedef url'e esit ise dogru yerdeyiz demektir, orada kalalim
+                // actual url, hedef url'e esit ise dogru yerdeyiz demektir, orada kalalim.
                 break;
             }
         }
 
-        // buyuk basligin "Elemental Selenium" oldugunu test edin
+        // Buyuk basligin "Elemental Selenium" oldugunu test edin.
         String expectedYazi = "Elemental Selenium";
         String actualYazi = driver.findElement(By.tagName("h1")).getText();
         Assertions.assertEquals(expectedYazi, actualYazi);

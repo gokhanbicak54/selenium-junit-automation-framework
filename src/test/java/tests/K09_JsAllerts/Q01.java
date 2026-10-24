@@ -9,6 +9,7 @@ public class Q01 extends TestBase_Each {
 
     @Test
     public void test01() {
+
         // https://testotomasyonu.com/javascriptAlert adresine gidin.
         driver.get("https://testotomasyonu.com/javascriptAlert");
 
@@ -27,6 +28,7 @@ public class Q01 extends TestBase_Each {
 
     @Test
     public void test02() {
+
         // - https://testotomasyonu.com/javascriptAlert adresine gidin.
         driver.get("https://testotomasyonu.com/javascriptAlert");
 
@@ -44,6 +46,7 @@ public class Q01 extends TestBase_Each {
 
     @Test
     public void test03() {
+
         // - https://testotomasyonu.com/javascriptAlert adresine gidin.
         driver.get("https://testotomasyonu.com/javascriptAlert");
 

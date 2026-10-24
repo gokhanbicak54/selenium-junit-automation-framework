@@ -12,61 +12,58 @@ public class C02_KontrolluWindowDegistirme extends TestBase_Each {
     public void test01() {
 
         /*
-            Eger bize verilen gorevde
-            yeni bir Tab veya yeni bir Window acilmasi isteniyorsa
+            Eger bize verilen gorevde yeni bir Tab veya yeni bir Window acilmasi isteniyorsa
             driver.switchTo().newWindow(WindowType.TAB);
             driver.switchTo().newWindow(WindowType.WINDOW);
-            ile yeni bir Tab veya Window acip, driver'i yeni window'a otomatik olarak gecirebiliriz
+            ile yeni bir Tab veya Window acip, driver'i yeni window'a otomatik olarak gecirebiliriz.
 
             Eger testimiz sirasinda birden fazla window aciliyorsa
-            driver'i istedigimiz window'a gecirmek icin
-            hedef window'un WindowHandle degerini girmeliyiz
+            driver'i istedigimiz window'a gecirmek icin hedef window'un WindowHandle degerini girmeliyiz.
             driver.switchTo().window(wisequarterWhd);
 
             Eger birden fazla window aciyorsak ve geri donmemiz gerekecekse
-            acilan her window'un window handle degerini kaydetmek
-            faydali olacaktir.
+            acilan her window'un window handle degerini kaydetmek faydali olacaktir.
          */
 
-        // testotomasyonu sayfasina gidin
+        // Testotomasyonu sayfasina gidin.
         driver.get("https://www.testotomasyonu.com");
 
-        // whd'ini kaydedin ve yazdirin
+        // whd'ini kaydedin ve yazdirin.
         String testotomasyonuWhd = driver.getWindowHandle();
         System.out.println("testotomasyonu window handle degeri: " + testotomasyonuWhd);
         ReusableMethods.wait(1);
         System.out.println("Acik olan tum window'larin whd'leri: " + driver.getWindowHandles());
 
-        // yeni bir tab acip, yeni tab'da wisequarter sayfasina gidin
+        // Yeni bir tab acip, yeni tab'da wisequarter sayfasina gidin.
         driver.switchTo().newWindow(WindowType.TAB);
         driver.get("https://www.wisequarter.com");
 
-        // whd'ini kaydedin ve yazdirin
+        // whd'ini kaydedin ve yazdirin.
         String wisequarterWhd = driver.getWindowHandle();
         System.out.println("wisequarter window handle degeri: " + wisequarterWhd);
         ReusableMethods.wait(1);
         System.out.println("Acik olan tum window'larin whd'leri: " + driver.getWindowHandles());
 
-        // yeni bir window acarak, arabam.com sayfasina gidin
+        // Yeni bir window acarak, arabam.com sayfasina gidin.
         driver.switchTo().newWindow(WindowType.WINDOW).get("https://www.arabam.com");
 
-        // whd'ini kaydedin ve yazdirin
+        // whd'ini kaydedin ve yazdirin.
         String arabamWhd = driver.getWindowHandle();
         System.out.println("arabam window handle degeri: " + arabamWhd);
         ReusableMethods.wait(1);
         System.out.println("Acik olan tum window'larin whd'leri: " + driver.getWindowHandles());
 
-        // wisequarter'in acik oldugu window'a donun ve url'in wisequarter icerdigini test edin
+        // Wisequarter'in acik oldugu window'a donun ve url'in wisequarter icerdigini test edin.
         driver.switchTo().window(wisequarterWhd);
         String expectedUrlIcerik = "wisequarter";
         String actualUrl = driver.getCurrentUrl();
         Assertions.assertTrue(actualUrl.contains(expectedUrlIcerik));
         ReusableMethods.wait(1);
 
-        // testotomasyonu'nun acik oldugu window'a donun
+        // Testotomasyonu'nun acik oldugu window'a donun.
         driver.switchTo().window(testotomasyonuWhd);
 
-        // ve url'in testotomasyonu icerdigini test edin
+        // Ve url'in testotomasyonu icerdigini test edin.
         expectedUrlIcerik = "testotomasyonu";
         actualUrl = driver.getCurrentUrl();
         Assertions.assertTrue(actualUrl.contains(expectedUrlIcerik));

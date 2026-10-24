@@ -22,16 +22,16 @@ public class C01_AyniWindowdaGezinme extends TestBase_Each {
         driver.findElement(By.xpath("(//a[.='Electronics'])[3]"))
                 .click();
 
-        // windowhandle degerini ve url'i yazdirin.
+        // Windowhandle degerini ve url'i yazdirin.
         System.out.println("Electronics url: " + driver.getCurrentUrl());
         System.out.println("Electronics window handle degeri: " + driver.getWindowHandle());
         ReusableMethods.wait(1);
 
-        // ilk urunu tiklayin.
+        // Ilk urunu tiklayin.
         driver.findElement(By.xpath("(//*[@class='prod-img'])[1]"))
                 .click();
 
-        // windowhandle degerini ve url'i yazdirin.
+        // Windowhandle degerini ve url'i yazdirin.
         System.out.println("ilk urun url: " + driver.getCurrentUrl());
         System.out.println("ilk urun window handle degeri: " + driver.getWindowHandle());
         ReusableMethods.wait(1);
@@ -40,7 +40,7 @@ public class C01_AyniWindowdaGezinme extends TestBase_Each {
         driver.findElement(By.xpath("(//span[.='Account'])[1]"))
                 .click();
 
-        // windowhandle degerini ve url'i yazdirin.
+        // Windowhandle degerini ve url'i yazdirin.
         System.out.println("account url: " + driver.getCurrentUrl());
         System.out.println("account window handle degeri: " + driver.getWindowHandle());
         ReusableMethods.wait(1);

@@ -17,6 +17,7 @@ public class Q01 {
 
     @BeforeEach
     public void setUp() {
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -24,11 +25,13 @@ public class Q01 {
 
     @AfterEach
     public void tearDown() {
+
         driver.quit();
     }
 
     @Test
     public void checkBoxTest() {
+
         // a. Verilen web sayfasına gidin. https://testotomasyonu.com/form
         driver.get("https://testotomasyonu.com/form");
 

@@ -16,41 +16,30 @@ public class C03_KontrolsuzAcilanWindow extends TestBase_Each {
         // https://the-internet.herokuapp.com/windows adresine gidin.
         driver.get("https://the-internet.herokuapp.com/windows");
 
-        // Sayfadaki textin “Opening a new window” olduğunu doğrulayın.
+        // Sayfadaki textin “Opening a new window” oldugunu dogrulayin.
         WebElement yaziElementi = driver.findElement(By.tagName("h3"));
         String expectedYazi = "Opening a new window";
-        String actualyazi = yaziElementi.getText();
+        String actualYazi = yaziElementi.getText();
+        Assertions.assertEquals(expectedYazi, actualYazi);
 
-        Assertions.assertEquals(expectedYazi,actualyazi);
-
-        // Sayfa başlığının(title) “The Internet” olduğunu doğrulayın.
+        // Sayfa basliginin(title) “The Internet” oldugunu dogrulayin.
         String expectedTitle = "The Internet";
         String actualTitle = driver.getTitle();
-        Assertions.assertEquals(expectedTitle,actualTitle);
-
+        Assertions.assertEquals(expectedTitle, actualTitle);
         String ilkWindowWhd = driver.getWindowHandle();
 
-        // Click Here butonuna basın.
+        // Click Here butonuna basin.
         driver.findElement(By.xpath("//*[.='Click Here']"))
                 .click();
 
         // Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu test edin.
-
         /*
             driver.getWindowHandle();
-            method'u icerisinde oldugu window'un window handle degerini bize getirir
-            ve biz de kaydedebiliriz
-
-            bir window'un whd'ini kaydettikten sonra
-            nerede olursak olalim
-            driver.switchTo().window(hedefWindowunWHDi); ile bu window'a gecis yapabiliriz
-
-            Kontrolsuz window acildiginda
-            driver beklemedigi bir durum oldugundan
-            yeni window'a gecmez, eski window'da kalir
-
-            yeni window'a gecemedigimiz icin
-            yeni window'un whd'ini de alamayiz
+            Method'u icerisinde oldugu window'un window handle degerini bize getirir ve biz de kaydedebiliriz.
+            Bir window'un whd'ini kaydettikten sonra nerede olursak olalim
+            driver.switchTo().window(hedefWindowunWHDi); ile bu window'a gecis yapabiliriz.
+            Kontrolsuz window acildiginda driver beklemedigi bir durum oldugundan yeni window'a gecmez, eski window'da kalir.
+            Yeni window'a gecemedigimiz icin yeni window'un whd'ini de alamayiz.
          */
 
         System.out.println("ilk window whd: " + ilkWindowWhd);
@@ -60,16 +49,11 @@ public class C03_KontrolsuzAcilanWindow extends TestBase_Each {
         System.out.println(acikTumWindowlarinWhdSeti);
 
         /*
-            Yeni window'un whd'ini bulmak icin mini bir bulmaca cozmeliyiz
-            Baslangicta alip kaydettigimiz
-            ilk window whd'ini biliyoruz
-
-            Acik olan tum window'larin whd'lerini
-            getWindowHandles() ile alip bir Set'e kaydedebiliriz.
-
-            Set'i bir for-each loop ile gozden gecirip
-            ilk window'un whd'ne esit olmayan elemani
-            ikinci window'un whd'i olarak atayabiliriz
+            Yeni window'un whd'ini bulmak icin mini bir bulmaca cozmeliyiz.
+            Baslangicta alip kaydettigimiz ilk window whd'ini biliyoruz.
+            Acik olan tum window'larin whd'lerini getWindowHandles() ile alip bir Set'e kaydedebiliriz.
+            Set'i bir for-each loop ile gozden gecirip ilk window'un whd'ne esit olmayan elemani
+            ikinci window'un whd'i olarak atayabiliriz.
          */
 
         String ikinciWindowWhd = "";
@@ -81,37 +65,33 @@ public class C03_KontrolsuzAcilanWindow extends TestBase_Each {
         }
 
         /*
-            ilk window'un whd'ini en basta kaydetmistik
-            simdi ikinci window'un whd'ine de sahibiz
-            artik switchTo() ile istedigimiz window'a gecis yapabiliriz
+            Ilk window'un whd'ini en basta kaydetmistik. Simdi ikinci window'un whd'ine de sahibiz.
+            Artik switchTo() ile istedigimiz window'a gecis yapabiliriz.
          */
 
         // Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu test edin.
-
         /*
-            yeni window kontrolsuz olarak acildigi icin
-            driver hala eski window'da
-            yeni window ile ilgili islem yapmadan once
-            driver'i yeni window'a gecirmeliyiz
+            Yeni window kontrolsuz olarak acildigi icin driver hala eski window'da.
+            Yeni window ile ilgili islem yapmadan once driver'i yeni window'a gecirmeliyiz.
          */
 
         driver.switchTo().window(ikinciWindowWhd);
         expectedTitle = "New Window";
         actualTitle = driver.getTitle();
-        Assertions.assertEquals(expectedTitle,actualTitle);
+        Assertions.assertEquals(expectedTitle, actualTitle);
 
-        // Sayfadaki textin “New Window” oldugunu dogrulayın.
+        // Sayfadaki textin “New Window” oldugunu dogrulayin.
         yaziElementi = driver.findElement(By.tagName("h3"));
         expectedYazi = "New Window";
-        actualyazi = yaziElementi.getText();
-        Assertions.assertEquals(expectedYazi,actualyazi);
+        actualYazi = yaziElementi.getText();
+        Assertions.assertEquals(expectedYazi, actualYazi);
 
-        // Bir önceki pencereye geri donun.
+        // Bir onceki pencereye geri donun.
         driver.switchTo().window(ilkWindowWhd);
 
-        // ve sayfa başlığının “The Internet” oldugunu test edin.
+        // Ve sayfa basliginin “The Internet” oldugunu test edin.
         expectedTitle = "The Internet";
         actualTitle = driver.getTitle();
-        Assertions.assertEquals(expectedTitle,actualTitle);
+        Assertions.assertEquals(expectedTitle, actualTitle);
     }
 }

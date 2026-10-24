@@ -12,11 +12,12 @@ public class C03_DropdownMenu extends TestBase_Each {
     @Test
     public void test01() {
 
-        // 1. http://zero.webappsecurity.com/ Adresine gidin.
+        // 1. http://zero.webappsecurity.com/ adresine gidin.
         driver.get("http://zero.webappsecurity.com/");
 
         // 2. Sign in butonuna basin.
-        driver.findElement(By.id("signin_button")).click();
+        driver.findElement(By.id("signin_button"))
+                .click();
 
         // 3. Login kutusuna “username” yazin.
         WebElement loginKutusu = driver.findElement(By.id("user_login"));
@@ -27,10 +28,12 @@ public class C03_DropdownMenu extends TestBase_Each {
                 .sendKeys("password");
 
         // 5. Sign in tusuna basin,
-        driver.findElement(By.name("submit")).click();
+        driver.findElement(By.name("submit"))
+                .click();
 
-        //    back tusuna basarak sayfaya donun.
-        driver.navigate().back();
+        // Back tusuna basarak sayfaya donun.
+        driver.navigate()
+                .back();
 
         // 6. Online banking menusunden
         driver.findElement(By.xpath("//strong[.='Online Banking']"))
@@ -61,7 +64,7 @@ public class C03_DropdownMenu extends TestBase_Each {
         driver.findElement(By.id("pc_inDollars_false"))
                 .click();
 
-        // 12. “Calculate Costs” butonuna basin.
+        // 12. “Calculate Costs” butonuna basin,
         driver.findElement(By.id("pc_calculate_costs"))
                 .click();
 
@@ -72,6 +75,6 @@ public class C03_DropdownMenu extends TestBase_Each {
         // 13. “Foreign currency cash was successfully purchased.” yazisinin ciktigini kontrol edin.
         String expectedSonucYazisi = "Foreign currency cash was successfully purchased.";
         String actualSonucyazisi = driver.findElement(By.id("alert_content")).getText();
-        Assertions.assertEquals(expectedSonucYazisi,actualSonucyazisi);
+        Assertions.assertEquals(expectedSonucYazisi, actualSonucyazisi);
     }
 }

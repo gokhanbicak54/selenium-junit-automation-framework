@@ -10,6 +10,7 @@ public class Q01 extends TestBase_Each {
 
     @Test
     public void test01() {
+
         // 1- Bir class olusturun : BasicAuthentication
         // 2- https://testotomasyonu.com/basicauth sayfasina gidin
         // 3- asagidaki yontem ve test datalarini kullanarak authentication’i yapin

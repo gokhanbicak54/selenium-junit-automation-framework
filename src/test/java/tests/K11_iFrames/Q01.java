@@ -10,6 +10,7 @@ public class Q01 extends TestBase_Each {
 
     @Test
     public void test01() {
+
         // 1- https://testotomasyonu.com/discount adresine gidin.
         driver.get("https://testotomasyonu.com/discount");
 

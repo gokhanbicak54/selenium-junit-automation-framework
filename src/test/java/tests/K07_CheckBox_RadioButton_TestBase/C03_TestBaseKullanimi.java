@@ -7,28 +7,25 @@ import utilities.TestBase_Each;
 public class C03_TestBaseKullanimi extends TestBase_Each {
 
     /*
-        Java'da OOP consept'in en buyuk avantaji REUSABILITY'dir
+        Java'da OOP consept'in en buyuk avantaji REUSABILITY'dir.
 
-        @BeforeEach - @AfterEach
-        @BeforeAll - @AfterAll
-        method'lari her class'da ayni sekilde yeniden yazmak yerine
-        baska bir class'da olusturabiliriz
+        @BeforeEach - @AfterEach - @BeforeAll - @AfterAll
+        method'lari her class'da ayni sekilde yeniden yazmak yerine baska bir class'da olusturabiliriz.
 
-        Baska bir class'da bulunan class uyelerine
-        ulasmanin en kisa yolu inheritance'dir
-
-        biz de utilities altinda TestBase class'i olusturup
-        before ve after method'larini o class'lara koyabiliriz
+        Baska bir class'da bulunan class uyelerine ulasmanin en kisa yolu inheritance'dir.
+        Biz de utilities altinda TestBase class'i olusturup before ve after method'larini o class'lara koyabiliriz.
      */
 
     @Test
     public void test01() {
+
         driver.get("https://www.testotomasyonu.com");
         ReusableMethods.wait(2);
     }
 
     @Test
     public void test02() {
+
         driver.get("https://www.wisequarter.com");
         ReusableMethods.wait(2);
     }

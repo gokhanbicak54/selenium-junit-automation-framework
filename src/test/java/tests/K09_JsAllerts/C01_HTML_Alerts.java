@@ -9,11 +9,12 @@ public class C01_HTML_Alerts extends TestBase_Each {
 
     @Test
     public void test01() {
-        // google anasayfaya gidin
+
+        // Google anasayfaya gidin.
         driver.get("https://www.google.com");
         ReusableMethods.wait(2);
 
-        // cookies kabul edin
+        // Cookies kabul edin.
         driver.findElement(By.xpath("//div[text()='Accept all']"))
                 .click();
         ReusableMethods.wait(3);

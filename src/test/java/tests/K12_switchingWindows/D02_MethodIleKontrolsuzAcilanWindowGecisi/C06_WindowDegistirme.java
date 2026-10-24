@@ -16,12 +16,12 @@ public class C06_WindowDegistirme extends TestBase_Each {
         driver.get("https://the-internet.herokuapp.com/windows");
         ReusableMethods.wait(1);
 
-        // sayfadaki elemental selenium linkini tiklayin
+        // Sayfadaki elemental selenium linkini tiklayin.
         driver.findElement(By.xpath("//*[.='Elemental Selenium']"))
                 .click();
 
-        // acilan yeni window'da buyuk basligin "Elemental Selenium" oldugunu test edin
-        // once title kullanarak yeni window'a gecelim
+        // Acilan yeni window'da buyuk basligin "Elemental Selenium" oldugunu test edin.
+        // Once title kullanarak yeni window'a gecelim.
         ReusableMethods.titleIleWindowGecisYap(driver,"Home | Elemental Selenium");
 
         String expectedYazi = "Elemental Selenium";
@@ -29,31 +29,31 @@ public class C06_WindowDegistirme extends TestBase_Each {
         Assertions.assertEquals(expectedYazi, actualYazi);
         ReusableMethods.wait(1);
 
-        // ilk window'a geri donun
+        // Ilk window'a geri donun.
         ReusableMethods.urlIleWindowGecisYap(driver,"https://the-internet.herokuapp.com/windows");
 
-        // "Opening a new window" yazisinin gorunur oldugunu test edin
+        // "Opening a new window" yazisinin gorunur oldugunu test edin.
         WebElement openingWindowElementi = driver.findElement(By.tagName("h3"));
         Assertions.assertTrue(openingWindowElementi.isDisplayed());
         ReusableMethods.wait(1);
 
-        // Click here'a basin
+        // Click here'a basin.
         driver.findElement(By.xpath("//*[.='Click Here']"))
                 .click();
 
         // Acilan yeni window'a gecip,
         ReusableMethods.titleIleWindowGecisYap(driver,"New Window");
 
-        // oradaki yazinin "New Window" oldugunu test edin
+        // Oradaki yazinin "New Window" oldugunu test edin.
         expectedYazi = "New Window";
         actualYazi = driver.findElement(By.tagName("h3")).getText();
         Assertions.assertEquals(expectedYazi, actualYazi);
         ReusableMethods.wait(1);
 
-        // Elemental selenium'un acik oldugu window'a gecip
+        // Elemental selenium'un acik oldugu window'a gecip,
         ReusableMethods.urlIleWindowGecisYap(driver,"https://elementalselenium.com/");
 
-        // Tips linkinin erisilebilir oldugunu test edin
+        // Tips linkinin erisilebilir oldugunu test edin.
         WebElement tipsElementi = driver.findElement(By.xpath("//*[.='Tips']"));
         Assertions.assertTrue(tipsElementi.isEnabled());
         ReusableMethods.wait(1);

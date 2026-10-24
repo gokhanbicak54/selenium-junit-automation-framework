@@ -31,31 +31,31 @@ public class C02_DropdownMenu extends TestBase_Each {
             //          Select class'indaki hazir method'lar ile istenen islemleri yapabiliriz.
         selectGun.selectByIndex(5);
 
-        // 2. Dogum tarihi ay seçeneğinden value kullanarak Nisan’i secin
+        // 2. Dogum tarihi ay seçeneğinden value kullanarak Nisan’i secin.
         WebElement ddmAy = driver.findElement(By.xpath("(//select[@class='form-control'])[2]"));
         Select selectAy = new Select(ddmAy);
         selectAy.selectByValue("nisan");
 
-        // 3. Dogum tarihi yil seçeneğinden visible text kullanarak 1990’i secin
+        // 3. Dogum tarihi yil seçeneğinden visible text kullanarak 1990’i secin.
         WebElement ddmYil = driver.findElement(By.xpath("(//select[@class='form-control'])[3]"));
         Select selectYil = new Select(ddmYil);
         selectYil.selectByVisibleText("1990");
 
-        // 4. Secilen değerleri konsolda yazdirin
+        // 4. Secilen değerleri konsolda yazdirin.
         System.out.println(selectGun.getFirstSelectedOption().getText());
         System.out.println(selectAy.getFirstSelectedOption().getText());
         System.out.println(selectYil.getFirstSelectedOption().getText());
 
-        // 5. Ay dropdown menüdeki tum değerleri(value) yazdırın.
+        // 5. Ay dropdown menüdeki tum değerleri(value) yazdirin.
         //   Ay dropdown menusunde "Ocak" degerinin bulundugunu test edin.
 
-        // 1.yontem : dropdown uzerinden olusturdugumuz ayDdm.getText()
-        //           menudeki tum ay isimlerini getirir.
+        // 1.yontem : Dropdown uzerinden olusturdugumuz ayDdm.getText()
+        //            menudeki tum ay isimlerini getirir.
         System.out.println(ddmAy.getText());
         Assertions.assertTrue(ddmAy.getText().contains("Ocak"));
 
-        // 2.yontem : tum opsiyonlarin yazilarini olusturdugumuz
-        //            String bir listeye ekleyebiliriz
+        // 2.yontem : Tum opsiyonlarin yazilarini olusturdugumuz
+        //            String bir listeye ekleyebiliriz,
         //            sonra list.contains() ile testimizi yapabiliriz.
         List<String> ayDdmYazilariList = new ArrayList<>();
         List<WebElement> ayDdmElementleriList = selectAy.getOptions();
@@ -73,6 +73,6 @@ public class C02_DropdownMenu extends TestBase_Each {
         // 6. Ay Dropdown menusunun boyutunun 13 olduğunu test edin.
         int expectedMenuBoyutu = 13;
         int actualMenuBoyutu = selectAy.getOptions().size();
-        Assertions.assertEquals(expectedMenuBoyutu,actualMenuBoyutu);
+        Assertions.assertEquals(expectedMenuBoyutu, actualMenuBoyutu);
     }
 }

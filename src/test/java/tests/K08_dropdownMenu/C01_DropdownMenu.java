@@ -18,25 +18,25 @@ public class C01_DropdownMenu extends TestBase_Each {
         // https://the-internet.herokuapp.com/dropdown adresine gidin.
         driver.get("https://the-internet.herokuapp.com/dropdown");
 
-            // 1.adim dropdown menuyu locate edip kaydedelim
+            // 1.adim dropdown menuyu locate edip kaydedelim.
         WebElement ddm = driver.findElement(By.id("dropdown"));
-            // 2.adim Select class'indan obje olusturup, parametre olarak ddm'yu girin
+            // 2.adim Select class'indan obje olusturup, parametre olarak ddm'yu girin.
         Select select = new Select(ddm);
-            // 3.adim olusturulan select objesi ile istenen islemleri yapin
+            // 3.adim olusturulan select objesi ile istenen islemleri yapin.
 
-        // 1.Index kullanarak Seçenek 1’i (Option 1) seçin ve yazdırın.
+        // 1.Index kullanarak Seçenek 1’i (Option 1) seçin ve yazdirin.
         select.selectByIndex(1);
         System.out.println(select.getFirstSelectedOption().getText()); // Option 1
 
-        // 2.Value kullanarak Seçenek 2'yi (Option 2) seçin ve yazdırın.
+        // 2.Value kullanarak Seçenek 2'yi (Option 2) seçin ve yazdirin.
         select.selectByValue("2");
         System.out.println(select.getFirstSelectedOption().getText()); // Option 2
 
-        // 3.Visible Text(Görünen metin) kullanarak Seçenek 1’i (Option 1) seçin ve yazdırın
+        // 3.Visible Text(Görünen metin) kullanarak Seçenek 1’i (Option 1) seçin ve yazdirin.
         select.selectByVisibleText("Option 1");
         System.out.println(select.getFirstSelectedOption().getText()); // Option 1
 
-        // 4.Tüm dropdown değerleri(value) yazdırın.
+        // 4.Tüm dropdown değerleri(value) yazdirin.
             // 1.alternatif tum listeyi text olarak yazdirma
         System.out.println(ddm.getText());
         //    Please select an option

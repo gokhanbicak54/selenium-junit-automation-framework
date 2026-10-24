@@ -17,6 +17,7 @@ import java.util.Set;
 public class ReusableMethods {
 
     public static void wait(int saniye) {
+
         try {
             Thread.sleep(saniye * 1000);
         } catch (InterruptedException e) {
@@ -25,6 +26,7 @@ public class ReusableMethods {
     }
 
     public static List<String> stringListeDondur(List<WebElement> webElementListesi) {
+
         List<String> stringList = new ArrayList<>();
         for (WebElement eachElement : webElementListesi) {
             stringList.add(eachElement.getText());
@@ -33,33 +35,37 @@ public class ReusableMethods {
     }
 
     public static void titleIleWindowGecisYap(WebDriver driver, String hedefWindowunTitle) {
-        // 1- acik olan tum window'larin WHD'lerini alip kaydedelim
+
+        // Acik olan tum window'larin whd'lerini alip kaydedelim.
         Set<String> acikWindowlarinWhdleri = driver.getWindowHandles(); //   [E7DF36DB6F21C9F3FACD1171BE7A52E1, 0FD94DE1BF431FA11ECEFA6FF529A3CE]
 
         for (String eachWhd : acikWindowlarinWhdleri) {
             driver.switchTo().window(eachWhd);
-            // gectigimiz window'un title'ini alip gecmek istedigimiz window'un title'ina esit mi diye kontrol edelim
+            // gectigimiz window'un title'ini alip gecmek istedigimiz window'un title'ina esit mi diye kontrol edelim.
             if (driver.getTitle().equals(hedefWindowunTitle)) {
-                //dogru window'dayiz demektir, burada kalabiliriz
+                // actual title, hedef title'a esit ise dogru yerdeyiz demektir, orada kalalim.
                 break;
             }
         }
     }
 
     public static void urlIleWindowGecisYap(WebDriver driver, String hedefUrl) {
-        // 1. adim acik tum window'larin whd'lerini alip kaydedelim
+
+        // Acik olan tum window'larin whd'lerini alip kaydedelim.
         Set<String> acikTumWindowsWhdSeti = driver.getWindowHandles();
 
         for (String eachWhd : acikTumWindowsWhdSeti) {
             driver.switchTo().window(eachWhd);
+            // Gectigimiz window'un url'ini alip gecmek istedigimiz window'un url'ina esit mi diye kontrol edelim.
             if (driver.getCurrentUrl().equals(hedefUrl)) {
-                // actual url, hedef url'e esit ise dogru yerdeyiz demektir, orada kalalim
+                // actual url, hedef url'e esit ise dogru yerdeyiz demektir, orada kalalim.
                 break;
             }
         }
     }
 
     public static void tumSayfaResimCek(WebDriver driver) {
+
         // 1.adim tss objesi olusturalim
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 
@@ -79,6 +85,7 @@ public class ReusableMethods {
     }
 
     public static void tumSayfaResimCek(WebDriver driver, String raporIsmi) {
+
         // 1.adim tss objesi olusturalim
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 
@@ -98,6 +105,7 @@ public class ReusableMethods {
     }
 
     public static void tarihliTumSayfaResimCek(WebDriver driver) {
+
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("_yyMMdd_HHmmss");
         String tarihEtiketi = localDateTime.format(format); // _241219_080623
@@ -121,6 +129,7 @@ public class ReusableMethods {
     }
 
     public static void tarihliTumSayfaResimCek(WebDriver driver, String raporIsmi) {
+
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("_yyMMdd_HHmmss");
         String tarihEtiketi = localDateTime.format(format); // _241219_080623
@@ -144,6 +153,7 @@ public class ReusableMethods {
     }
 
     public static void webElementResimCek(WebElement webElement) {
+
         // 1.adim screenshot alacagimiz webelementi locate edip kaydedelim
         //        biz parametre olarak gonderiyoruz
 
@@ -163,6 +173,7 @@ public class ReusableMethods {
     }
 
     public static void webElementResimCek(WebElement webElement, String raporIsmi) {
+
         // 1.adim screenshot alacagimiz webelementi locate edip kaydedelim
         //        biz parametre olarak gonderiyoruz
 
@@ -182,6 +193,7 @@ public class ReusableMethods {
     }
 
     public static void tarihliWebElementResimCek(WebElement webElement) {
+
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("_yyMMdd_HHmmss");
         String tarihEtiketi = localDateTime.format(format); // _241219_080623
@@ -205,6 +217,7 @@ public class ReusableMethods {
     }
 
     public static void tarihliWebElementResimCek(WebElement webElement, String raporIsmi) {
+
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("_yyMMdd_HHmmss");
         String tarihEtiketi = localDateTime.format(format); // _241219_080623

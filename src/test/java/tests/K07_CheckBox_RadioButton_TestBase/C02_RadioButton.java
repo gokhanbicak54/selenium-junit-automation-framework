@@ -10,16 +10,11 @@ import java.time.Duration;
 
 public class C02_RadioButton {
 
-    //	a. Verilen web sayfasına gidin.
-    //	      https://testotomasyonu.com/form
-    //	b. Cinsiyet Radio button elementlerini locate edin
-    //	c. Iki farkli test method’u oluşturup yazidan veya direk buton’dan size uygun olani secin
-    //	d. Sectiginiz radio button’un seçili, ötekilerin seçili olmadigini test edin
-
     WebDriver driver;
 
     @BeforeEach
     public void setup() {
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -27,27 +22,26 @@ public class C02_RadioButton {
 
     @AfterEach
     public void teardown() {
+
         driver.quit();
     }
 
     @Test
     public void yazidanSecimTesti() {
-        //	a. Verilen web sayfasına gidin.
-        //	      https://testotomasyonu.com/form
+
+        //	a. Verilen web sayfasına gidin. https://testotomasyonu.com/form
         driver.get("https://testotomasyonu.com/form");
 
-        //	b. Cinsiyet Radio button elementlerini locate edin
+        //	b. Cinsiyet Radio button elementlerini locate edin.
         WebElement kadinRadioButton = driver.findElement(By.id("inlineRadio1"));
         WebElement erkekRadioButton = driver.findElement(By.id("inlineRadio2"));
         WebElement digerRadioButton = driver.findElement(By.id("inlineRadio3"));
 
-        //	c.yazidan size uygun olani secin
-        //    erkek seciyorum
+        //	c. Yazidan size uygun olani secin. Erkek seciyorum.
         driver.findElement(By.xpath("//*[@for='inlineRadio2']"))
                 .click();
 
-        //	d. Sectiginiz radio button’un seçili, ötekilerin seçili olmadigini test edin
-
+        //	d. Sectiginiz radio button’un seçili, ötekilerin seçili olmadigini test edin.
         Assertions.assertTrue(erkekRadioButton.isSelected());
         Assertions.assertFalse(kadinRadioButton.isSelected());
         Assertions.assertFalse(digerRadioButton.isSelected());
@@ -55,20 +49,19 @@ public class C02_RadioButton {
 
     @Test
     public void butondanSecimTesti() {
-        //	a. Verilen web sayfasına gidin.
-        //	      https://testotomasyonu.com/form
+
+        //	a. Verilen web sayfasına gidin. https://testotomasyonu.com/form
         driver.get("https://testotomasyonu.com/form");
 
-        //	b. Cinsiyet Radio button elementlerini locate edin
+        //	b. Cinsiyet Radio button elementlerini locate edin.
         WebElement kadinRadioButton = driver.findElement(By.id("inlineRadio1"));
         WebElement erkekRadioButton = driver.findElement(By.id("inlineRadio2"));
         WebElement digerRadioButton = driver.findElement(By.id("inlineRadio3"));
 
-        //	c. direk buton’dan size uygun olani secin
-        //     erkek butonu seciyorum
+        //	c. Direkt buton’dan size uygun olani secin. Erkek butonu seciyorum.
         erkekRadioButton.click();
 
-        //	d. Sectiginiz radio button’un seçili, ötekilerin seçili olmadigini test edin
+        //	d. Sectiginiz radio button’un seçili, ötekilerin seçili olmadigini test edin.
         Assertions.assertTrue(erkekRadioButton.isSelected());
         Assertions.assertFalse(kadinRadioButton.isSelected());
         Assertions.assertFalse(digerRadioButton.isSelected());

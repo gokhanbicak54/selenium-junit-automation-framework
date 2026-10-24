@@ -12,6 +12,7 @@ public class C01_IFrame extends TestBase_Each {
 
     @Test
     public void test01() {
+
         // 1) https://demoqa.com/frames sitesine gidiniz.
         driver.get("https://demoqa.com/frames");
 
@@ -20,11 +21,9 @@ public class C01_IFrame extends TestBase_Each {
         driver.switchTo().frame(hedefIFrameElementi);
 
             /*
-                 yaziyi unique olarak locate etmemize ragmen kullanamadik
-                 HTML kodlarini inceleyince kullanmak istedigimiz webelementin
-                 bir iframe(gomulu HTML sayfa) icerisinde oldugunu belirledik
-                 bir iframe icerisindeki elementi kullanabilmek icin
-                 once o iframe'e gecis yapmamiz gerekir
+                 Yaziyi unique olarak locate etmemize ragmen kullanamadik.
+                 HTML kodlarini inceleyince kullanmak istedigimiz webelementin bir iframe(gomulu HTML sayfa) icerisinde oldugunu belirledik.
+                 Bir iframe icerisindeki elementi kullanabilmek icin once o iframe'e gecis yapmamiz gerekir.
              */
 
         WebElement yaziElementi = driver.findElement(By.xpath("(//h1[@id='sampleHeading'])[1]"));
@@ -32,22 +31,19 @@ public class C01_IFrame extends TestBase_Each {
 
         // 3) TOOLSQA logosunun gorunur oldugunu test edin.
         /*
-            iframe icine gecis yapinca, biz driver'i oradan cikarincaya kadar
-            driver iframe'in icinde kalir
-            driver'i icinde oldugu iFrame'den cikarmak icin iki farkli method kullanilabilir
+            iframe icine gecis yapinca, biz driver'i oradan cikarincaya kadar driver iframe'in icinde kalir.
+            driver'i icinde oldugu iFrame'den cikarmak icin iki farkli method kullanilabilir.
 
             driver.switchTo().parentFrame();
-            ic ice birden fazla katman olarak iFrame'ler varsa
-            bir ust katman'a cikartir
+            ic ice birden fazla katman olarak iFrame'ler varsa bir ust katman'a cikartir.
 
             driver.switchTo().defaultContent();
-            ic ice birden fazla katman olarak iFrame'ler varsa
-            direkt anasayfaya cikartir
+            ic ice birden fazla katman olarak iFrame'ler varsa direkt anasayfaya cikartir.
          */
 
-        //driver.switchTo().defaultContent();
+        // driver.switchTo().defaultContent();
         driver.switchTo().parentFrame();
-        WebElement toolsQaLogo = driver.findElement(By.xpath("//*[@src='/images/Toolsqa.jpg']"));
+        WebElement toolsQaLogo = driver.findElement(By.xpath("(//a)[1]"));
         Assertions.assertTrue(toolsQaLogo.isDisplayed());
 
         // 4) sayfadaki iframe sayısını yazdirin.
