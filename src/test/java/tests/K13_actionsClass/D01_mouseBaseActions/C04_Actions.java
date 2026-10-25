@@ -25,7 +25,7 @@ public class C04_Actions extends TestBase_Each {
                 .click();
 
         // 4- Popup mesajini yazdirin.
-        System.out.println( "alert yazisi : " + driver.switchTo().alert().getText() );
+        System.out.println("Alert yazisi: " + driver.switchTo().alert().getText());
 
         // 5- Popup'i tamam diyerek kapatin.
         driver.switchTo()
@@ -39,17 +39,17 @@ public class C04_Actions extends TestBase_Each {
 
         // 7-“Click and hold" kutusunda cikan yaziyi yazdirin.
         clickAndHoldElementi = driver.findElement(By.id("click-box"));
-        System.out.println("basili tutarken yazi: " + clickAndHoldElementi.getText());
+        System.out.println("Basili tutarken yazi: " + clickAndHoldElementi.getText());
 
         // 8- “Double click me" butonunu cift tiklayin.
         WebElement doubleClickElementi = driver.findElement(By.id("double-click"));
-        // System.out.println("cift click yapilmadan class attribute: " + doubleClickElementi.getAttribute("class"));
+        // System.out.println("Cift click yapilmadan class attribute: " + doubleClickElementi.getAttribute("class"));
         // div-double-click
         actions.doubleClick(doubleClickElementi)
                 .perform();
 
-        // cift tiklandigini test edin.
-        // System.out.println("cift click yapildiktan sonra class attribute: " + doubleClickElementi.getAttribute("class"));
+        // Cift tiklandigini test edin.
+        // System.out.println("Cift click yapildiktan sonra class attribute: " + doubleClickElementi.getAttribute("class"));
         // div-double-click double
         String expectedClassAttributeDegeri = "div-double-click double";
         String actualClassAttributeDegeri = doubleClickElementi.getAttribute("class");

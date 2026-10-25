@@ -18,7 +18,7 @@ public class C01_KeybordActions  extends TestBase_Each {
         driver.get("https://www.testotomasyonu.com");
 
         // 2- Arama kutusuna actions method’larini kullanarak “DELL Core I3” yazdirin.
-        //   ve Enter’a basarak arama yaptirin
+        //   Ve Enter’a basarak arama yaptirin.
         WebElement aramaKutusu = driver.findElement(By.id("global-search"));
         Actions actions = new Actions(driver);
         ReusableMethods.wait(1);

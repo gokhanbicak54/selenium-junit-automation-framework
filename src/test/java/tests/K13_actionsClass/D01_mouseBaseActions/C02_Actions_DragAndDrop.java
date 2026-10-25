@@ -21,13 +21,13 @@ public class C02_Actions_DragAndDrop extends TestBase_Each {
         WebElement dropHereKutusuElementi = driver.findElement(By.id("droppable2"));
 
         // System.out.println("Tasimadan once yazi: " + dropHereKutusuElementi.getText());
-        // Tasimadan once yazi : Drop Here
+        // Tasimadan once yazi: Drop Here
         Actions actions = new Actions(driver);
         ReusableMethods.wait(1);
         actions.dragAndDrop(draggableElementi, dropHereKutusuElementi)
                 .perform();
-        // System.out.println("Tasimadiktan sonra yazi: " + dropHereKutusuElementi.getText());
-        // Tasimadiktan sonra yazi: Dropped!
+        // System.out.println("Tasidiktan sonra yazi: " + dropHereKutusuElementi.getText());
+        // Tasidiktan sonra yazi: Dropped!
 
         // 3- “Drop here” yazisi yerine “Dropped!” oldugunu test edin.
         String expectedYazi = "Dropped!";

@@ -27,9 +27,8 @@ public class C02_FormDoldurma extends TestBase_Each {
 
         // 4- Ad, soyad, mail ve sifre kutularina deger yazalim.
         /*
-            Formdaki tum kutulari tek tek locate etmek yerine
-            firstName kutusuna click yapip, isim gonderelim
-            sonraki kutulara gecisi de TAB tusu ile yapabiliriz
+            Formdaki tum kutulari tek tek locate etmek yerine firstName kutusuna click yapip, isim gonderelim.
+            Sonraki kutulara gecisi de TAB tusu ile yapabiliriz.
          */
 
         Actions actions = new Actions(driver);
@@ -46,14 +45,13 @@ public class C02_FormDoldurma extends TestBase_Each {
                 .sendKeys(Keys.TAB)
                 .sendKeys("12345").perform();
 
-        //   ve Sign Up butonuna basalim
+        //   Ve Sign Up butonuna basalim.
         driver.findElement(By.id("btn-submit-form")).click();
 
         // 5- Kaydin olusturuldugunu test edin.
         /*
-            Kayit yapinca bizi otomatik olarak giris sayfasina yonlendiriyor
-            kaydin olustugunu test edebilmek icin
-            giris yapalim
+            Kayit yapinca bizi otomatik olarak giris sayfasina yonlendiriyor.
+            Kaydin olustugunu test edebilmek icin giris yapalim.
          */
 
         WebElement emailKutusu = driver.findElement(By.xpath("//input[@id='email']"));
