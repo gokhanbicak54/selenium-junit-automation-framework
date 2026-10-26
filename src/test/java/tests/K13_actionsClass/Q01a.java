@@ -20,7 +20,8 @@ public class Q01a extends TestBase_Each {
         Actions actions = new Actions(driver);
         ReusableMethods.wait(2);
         WebElement dgiDronesElementi = driver.findElement(By.xpath("//img[@id='pic2_thumb']"));
-        actions.contextClick(dgiDronesElementi).perform();
+        actions.contextClick(dgiDronesElementi)
+                .perform();
 
         // 3- Alert’te cikan yazinin “Tebrikler!... Sağ click yaptınız.” oldugunu test edin.
         String expectedAlertText = "Tebrikler!... Sağ click yaptınız.";
@@ -28,6 +29,8 @@ public class Q01a extends TestBase_Each {
         Assertions.assertEquals(expectedAlertText, actualAlertText);
 
         // 4- Tamam diyerek alert’i kapatalim.
-        driver.switchTo().alert().accept();
+        driver.switchTo()
+                .alert()
+                .accept();
     }
 }
