@@ -18,7 +18,7 @@ public class C02_FakerIleFormDoldurma  extends TestBase_Each {
         // 1- https://www.testotomasyonu.com adresine gidelim.
         driver.get("https://www.testotomasyonu.com");
 
-        // 2- Account linkine tiklayin
+        // 2- Account linkine tiklayin.
         driver.findElement(By.xpath("(//span[.='Account'])[1]"))
                 .click();
 
@@ -43,11 +43,11 @@ public class C02_FakerIleFormDoldurma  extends TestBase_Each {
                 .sendKeys(fakeSifre).perform();
         ReusableMethods.wait(5);
 
-        //   ve Sign Up butonuna basalim.
+        //   Ve Sign Up butonuna basalim.
         driver.findElement(By.id("btn-submit-form")).click();
 
         // 5- Kaydin olusturuldugunu test edin.
-        //   kayit icin kullandigimiz bilgilerle login olalim.
+        //   Kayit icin kullandigimiz bilgilerle login olalim.
         WebElement emailKutusu = driver.findElement(By.xpath("//input[@id='email']"));
         emailKutusu.sendKeys(fakeEmail);
         WebElement passwordKutusu = driver.findElement(By.xpath("//input[@id='password']"));
@@ -58,7 +58,7 @@ public class C02_FakerIleFormDoldurma  extends TestBase_Each {
         WebElement logoutButonu = driver.findElement(By.xpath("//span[.='Logout']"));
         Assertions.assertTrue(logoutButonu.isEnabled());
 
-        // sistemden cikis yapalim.
+        // Sistemden cikis yapalim.
         logoutButonu.click();
     }
 }

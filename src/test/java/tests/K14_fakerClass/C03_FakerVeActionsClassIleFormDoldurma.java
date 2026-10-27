@@ -28,9 +28,7 @@ public class C03_FakerVeActionsClassIleFormDoldurma extends TestBase_Each {
 
         // 2.cookie'i de kabul edelim.
 
-        // 4- Ad, soyad, mail ve sifre kutularina deger yazalim,
-        //   tarih ve cinsiyet secimlerini yapalim ve kaydol tusuna basalim.
-
+        // 4- Ad, soyad, mail ve sifre kutularina deger yazalim. Tarih ve cinsiyet secimlerini yapalim ve kaydol tusuna basalim.
         Actions actions = new Actions(driver);
         Faker faker = new Faker();
         ReusableMethods.wait(1);
