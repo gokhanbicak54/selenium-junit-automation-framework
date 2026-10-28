@@ -11,17 +11,17 @@ public class C04_FileUploadTesti  extends TestBase_Each {
     @Test
     public void test01() {
 
-        // https://the-internet.herokuapp.com/upload adresine gidelim
+        // https://the-internet.herokuapp.com/upload adresine gidelim.
         driver.get("https://the-internet.herokuapp.com/upload");
 
-        // chooseFile butonuna basalim
+        // chooseFile butonuna basalim.
         WebElement chooseFileButonu = driver.findElement(By.id("file-upload"));
-        // Proje altindaki deneme.txt dosyayi secelim.
 
+        // Proje altindaki deneme.txt dosyayi secelim.
         /*
-            ChooseFile butonuna bastigimizda bilgisayarimizdaki dosya yapisi cikiyor
+            ChooseFile butonuna bastigimizda bilgisayarimizdaki dosya yapisi cikiyor.
             WebDriver ile bilgisayarimizdaki fiziki dosya yapisina mudahale edemeyecegimiz icin
-            Selenium bize sendKeys(dosyaYolu) yapma firsati verir
+            Selenium bize sendKeys(dosyaYolu) yapma firsati verir.
          */
 
         String dinamikDosyaYolu = System.getProperty("user.dir") + "/src/test/java/tests/K15_fileTestleri/deneme.txt";

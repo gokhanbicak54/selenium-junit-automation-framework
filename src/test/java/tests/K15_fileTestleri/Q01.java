@@ -21,7 +21,7 @@ public class Q01 extends TestBase_Each {
         driver.findElement(By.xpath("//a[.='test.txt']"))
                 .click();
 
-        // 3. Dosyanın başarıyla indirilip indirilmediğini test edelim.
+        // 3. Dosyanın basarıyla indirilip indirilmedigini test edelim.
         ReusableMethods.wait(3);
         String dosyaYolu = System.getProperty("user.home") + "\\Downloads\\test.txt";
         Assertions.assertTrue(Files.exists(Paths.get(dosyaYolu)));

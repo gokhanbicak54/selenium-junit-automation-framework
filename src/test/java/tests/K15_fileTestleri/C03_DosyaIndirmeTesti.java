@@ -17,14 +17,14 @@ public class C03_DosyaIndirmeTesti extends TestBase_Each {
         // 1. https://the-internet.herokuapp.com/download adresine gidelim.
         driver.get("https://the-internet.herokuapp.com/download");
 
-        // 2. webDriverIO.png dosyasını indirelim
+        // 2. webDriverIO.png dosyasını indirelim.
         driver.findElement(By.xpath("//*[.='webdriverIO.png']"))
                 .click();
 
-        // 3. Dosyanın başarıyla indirilip indirilmediğini test edelim
+        // 3. Dosyanın basarıyla indirilip indirilmedigini test edelim.
         ReusableMethods.wait(1);
 
-        // Dosya downloads'a inecektir
+        // Dosya downloads'a inecektir.
         String dinamikDosyaYolu = System.getProperty("user.home") + "/Downloads/webDriverIO.png";
         Assertions.assertTrue(Files.exists(Paths.get(dinamikDosyaYolu)));
     }
