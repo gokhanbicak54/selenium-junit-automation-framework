@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class Q01 {
 
-    // Iki tane metod olusturun : implicitWaitTest , explicitWaitTest
+    // Iki tane metod olusturun: implicitWaitTest, explicitWaitTest
     // Iki metod icin de asagidaki adimlari test edin.
 
     WebDriver driver;

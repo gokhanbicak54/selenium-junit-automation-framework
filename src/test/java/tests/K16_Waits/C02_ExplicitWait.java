@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utilities.ReusableMethods;
 
 import java.time.Duration;
 
@@ -31,23 +30,22 @@ public class C02_ExplicitWait {
 
         // 3. “It’s gone!” mesajinin goruntulendigini dogrulayin.
         WebElement itsGoneYaziElementi = driver.findElement(By.xpath("//*[.=\"It's gone!\"]"));
-        //                                                                          //*[.="It's gone!"]
-
+        // Locate edebilmek icin tek tırnak yerine cift tırnak koyduk. Ekstra slashı üstte kendi koydu. Normalde locate: //*[.="It's gone!"]
         Assertions.assertTrue(itsGoneYaziElementi.isDisplayed());
 
-        // 4. Add buttonuna basin
+        // 4. Add buttonuna basin.
         driver.findElement(By.xpath("//*[.='Add']"))
                 .click();
 
-        // 5. It’s back mesajinin gorundugunu test edin
+        // 5. It’s back mesajinin gorundugunu test edin.
         WebElement itsBackElementi = driver.findElement(By.xpath("//*[.=\"It's back!\"]"));
         Assertions.assertTrue(itsBackElementi.isDisplayed());
-
         driver.quit();
     }
 
     @Test
     public void explicitlyWaitTesti() {
+
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         driver.manage().window().maximize();
@@ -60,27 +58,20 @@ public class C02_ExplicitWait {
                 .click();
 
         // 3. “It’s gone!” mesajinin goruntulendigini dogrulayin.
-        //WebElement itsGoneYaziElementi = driver.findElement(By.xpath("//*[.=\"It's gone!\"]"));
+        // WebElement itsGoneYaziElementi = driver.findElement(By.xpath("//*[.=\"It's gone!\"]"));
 
         /*
-            itsGoneYaziElementi'nin gorunun olmasi icin BEKLEME(wait)'ye ihtiyac var
-
-            ama explicitlyWait icin de locate'e ihtiyac var
-
-            boylece tavuk mu yumurtadan, yumurta mi tavuktan durumu oluyor
-
-            Seleniumbu donguyu cozmek icin
-            explicitly wait'de 3 adim yerine 2 adim atmamizi saglayan bir cozum uretmistir
-            bu iki adimda locate ve bekleme islemini bir satirda yapiyoruz
+            itsGoneYaziElementi'nin gorunun olmasi icin BEKLEME(wait)'ye ihtiyac var. Ama explicitlyWait icin de locate'e ihtiyac var.
+            Boylece tavuk mu yumurtadan, yumurta mi tavuktan durumu oluyor.
+            Selenium bu donguyu cozmek icin explicitly wait'de 3 adim yerine 2 adim atmamizi saglayan bir cozum uretmistir.
+            Bu iki adimda locate ve bekleme islemini bir satirda yapiyoruz.
          */
 
-            // 1.adim wait objesi olustur
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+            // 1.adim wait objesi olustur.
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-            // 2. ve 3.adim : bekleme yapmadan locate etmek mumkun olmadigindan
-            //               bekleme ve locate'i tek adimda yapacagiz
+            // 2. ve 3.adim: bekleme yapmadan locate etmek mumkun olmadigindan bekleme ve locate'i tek adimda yapacagiz.
         WebElement itsGoneYaziElementi = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[.=\"It's gone!\"]")));
-
         Assertions.assertTrue(itsGoneYaziElementi.isDisplayed());
 
         // 4. Add buttonuna basin.
@@ -89,6 +80,7 @@ public class C02_ExplicitWait {
 
         // 5. It’s back mesajinin gorundugunu test edin.
         WebElement itsBackElementi = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[.=\"It's back!\"]")));
+        Assertions.assertTrue(itsBackElementi.isDisplayed());
         driver.quit();
     }
 }
