@@ -36,7 +36,7 @@ public class C01_KlasikHtmlTablo extends TestBase_Each {
         System.out.println("==========Tum satirlar===========");
         System.out.println(ReusableMethods.stringListeDondur(tumsatirElementleriList));
 
-        // eger satirlari belirterek yazdirmak isterseniz bir for-each loop ile satirlari yazdirabilirsiniz.
+        // Eger satirlari belirterek yazdirmak isterseniz bir for-each loop ile satirlari yazdirabilirsiniz.
         int satirNo = 1;
         for (WebElement eachSatirElementi : tumsatirElementleriList) {
             System.out.println(satirNo + ". satir: \n" + eachSatirElementi.getText());
@@ -45,11 +45,9 @@ public class C01_KlasikHtmlTablo extends TestBase_Each {
 
         // 6. Web table’daki sutun sayisinin 4 olduğunu test edin.
         /*
-           Web tablolarinda sutun olarak gruplama yoktur
-           body / satirlar / datalar vardir
-           eger sutun sayisini bulmak isterseniz
-           herhangi bir satirdaki data sayisina bakabiliriz
-           ornegin 1.satirdaki datalara bakalim
+           Web tablolarinda sutun olarak gruplama yoktur. body / satirlar / datalar vardir.
+           Eger sutun sayisini bulmak isterseniz herhangi bir satirdaki data sayisina bakabiliriz.
+           Ornegin 1.satirdaki datalara bakalim.
          */
 
         List<WebElement> birinciSatirElementleriList = driver.findElements(By.xpath("//tr[1]/td"));
@@ -59,8 +57,7 @@ public class C01_KlasikHtmlTablo extends TestBase_Each {
 
         // 7. 3.sutunu yazdirin.
         /*
-           Web tablolarinda sutun olarak gruplama yoktur
-           3.sutun diyemedigimiz icin her satirdaki 3. datayi alip sutunu olustururuz
+           Web tablolarinda sutun olarak gruplama yoktur. 3.sutun diyemedigimiz icin her satirdaki 3. datayi alip sutunu olustururuz.
          */
 
         List<WebElement> ucuncuSutunElementleriList = driver.findElements(By.xpath("//tr[*]/td[3]"));
@@ -77,13 +74,14 @@ public class C01_KlasikHtmlTablo extends TestBase_Each {
         System.out.println("4.satir, 3.sutun: " + getCellData(4,3)); // $39.00
 
         // 10. 4.satirdaki category degerinin "Furniture" oldugunu test edin.
-        //    4.satir, 2.sutundaki datanin "Furniture" oldugunu test edin
+        //     4.satir, 2.sutundaki datanin "Furniture" oldugunu test edin
         String expected42 = "Furniture";
         String actual42 = getCellData(4,2);
         Assertions.assertEquals(expected42, actual42);
     }
 
     public String getCellData(int satirNo, int sutunNo) {
+
         String istenenCellData = "";
         //      //tr[   4    ]/td[   2   ]
         String dinamikXpath = "//tr[" + satirNo + "]/td[" + sutunNo + "]";

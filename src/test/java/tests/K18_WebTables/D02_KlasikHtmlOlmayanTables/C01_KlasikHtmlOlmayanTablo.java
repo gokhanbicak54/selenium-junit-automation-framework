@@ -12,12 +12,13 @@ public class C01_KlasikHtmlOlmayanTablo extends TestBase_Each {
 
     @Test
     public void test01() {
+
         //       //*[@role='trow'][4]/*[@role='tdata'][1]
 
         // 1. “https://testotomasyonu.com/webtables2” sayfasina gidin.
         driver.get("https://testotomasyonu.com/webtables2");
 
-        // 2. Headers da bulunan basliklari yazdirin.
+        // 2. Headers'da bulunan basliklari yazdirin.
         List<WebElement> baslikElementleriList = driver.findElements(By.xpath("//*[@role='hrow']/*[@role='hdata']"));
         System.out.println("Basliklar: " + ReusableMethods.stringListeDondur(baslikElementleriList));
 
@@ -36,14 +37,12 @@ public class C01_KlasikHtmlOlmayanTablo extends TestBase_Each {
         System.out.println("Satir sayisi: " + satirElementleriList.size());
 
         // 7. Tablodaki sutun sayisini yazdirin.
-        //     WebTablo'da sutun yapisi yoktur
-        //     Herhangi bir satirdaki data sayisina bakabiliriz
-        //     Yukarida kaydettigimiz icin baslik sayisini alalim
+        //    WebTablo'da sutun yapisi yoktur. Herhangi bir satirdaki data sayisina bakabiliriz.
+        //    Yukarida kaydettigimiz icin baslik sayisini alalim.
         System.out.println("Tablodaki sutun sayisi: " + baslikElementleriList.size());
 
         // 8. Tablodaki 3.kolonu yazdirin.
-        //     WebTablo'da sutun yapisi yoktur
-        //     3.sutun yerine, her satirdaki 3.datayi alabiliriz
+        //    WebTablo'da sutun yapisi yoktur. 3.sutun yerine, her satirdaki 3.datayi alabiliriz.
         List<WebElement> ucuncuSutunElementleriList = driver.findElements(By.xpath("//*[@role='trow']/*[@role='tdata'][3]"));
         System.out.println("Ucuncu sutun elementleri: " + ReusableMethods.stringListeDondur(ucuncuSutunElementleriList));
 
@@ -54,9 +53,8 @@ public class C01_KlasikHtmlOlmayanTablo extends TestBase_Each {
         System.out.println(getCellData(3,4)); // Go
         
         // 9. Tabloda "Category" si Furniture olan urunun fiyatini yazdirin.
-        //     satirlari tek tek dolasip, istenen bilgiyi kontrol etmeli
-        //     ve sarti saglayanlar icin yazdirilmasi istenen bilgiyi yazdirmaliyiz
-        System.out.println("=====Kategoriye gore element listesi======");
+        //    Satirlari tek tek dolasip, istenen bilgiyi kontrol etmeli ve sarti saglayanlar icin yazdirilmasi istenen bilgiyi yazdirmaliyiz.
+        System.out.println("======Kategoriye gore element listesi======");
 
         for (int i = 1; i <= satirElementleriList.size(); i++) {
             String satirdakiKategory = getCellData(i,2);
@@ -67,6 +65,7 @@ public class C01_KlasikHtmlOlmayanTablo extends TestBase_Each {
     }
 
     public String getCellData(int satirNo, int sutunNo) {
+
          //           //*[@role='trow'][    4     ]/*[@role='tdata'][   1   ]
         String dinamikXpath = "//*[@role='trow'][" + satirNo + "]/*[@role='tdata'][" + sutunNo + "]";
         WebElement istenenDataElementi = driver.findElement(By.xpath(dinamikXpath));
